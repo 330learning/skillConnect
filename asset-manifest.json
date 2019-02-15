@@ -1,14 +1,14 @@
 {
-  "main.css": "/skillConnect/static/css/main.02add8a4.chunk.css",
-  "main.js": "/skillConnect/static/js/main.1508a6aa.chunk.js",
-  "main.js.map": "/skillConnect/static/js/main.1508a6aa.chunk.js.map",
+  "main.css": "/skillConnect/static/css/main.cf6d1b9f.chunk.css",
+  "main.js": "/skillConnect/static/js/main.8f405b08.chunk.js",
+  "main.js.map": "/skillConnect/static/js/main.8f405b08.chunk.js.map",
   "runtime~main.js": "/skillConnect/static/js/runtime~main.f24ac376.js",
   "runtime~main.js.map": "/skillConnect/static/js/runtime~main.f24ac376.js.map",
-  "static/js/2.ba1ca5ba.chunk.js": "/skillConnect/static/js/2.ba1ca5ba.chunk.js",
-  "static/js/2.ba1ca5ba.chunk.js.map": "/skillConnect/static/js/2.ba1ca5ba.chunk.js.map",
+  "static/js/2.cb411afa.chunk.js": "/skillConnect/static/js/2.cb411afa.chunk.js",
+  "static/js/2.cb411afa.chunk.js.map": "/skillConnect/static/js/2.cb411afa.chunk.js.map",
   "index.html": "/skillConnect/index.html",
-  "precache-manifest.bfea60d4e608821b905136d3a90473ec.js": "/skillConnect/precache-manifest.bfea60d4e608821b905136d3a90473ec.js",
+  "precache-manifest.b171a7b6d3619b50eef33657816bb319.js": "/skillConnect/precache-manifest.b171a7b6d3619b50eef33657816bb319.js",
   "service-worker.js": "/skillConnect/service-worker.js",
-  "static/css/main.02add8a4.chunk.css.map": "/skillConnect/static/css/main.02add8a4.chunk.css.map",
+  "static/css/main.cf6d1b9f.chunk.css.map": "/skillConnect/static/css/main.cf6d1b9f.chunk.css.map",
   "static/media/logo.svg": "/skillConnect/static/media/logo.5d5d9eef.svg"
 }
