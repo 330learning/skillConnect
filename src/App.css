@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #A2D7DD;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,4 +30,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#title {
+  font-size: 50px;
+  padding: 10px 5px 10px 5px;
+  margin-bottom: 150px;
+  font-weight: bold;
+}
+
+#standard-search {
+  width: 200px;
+}
+
+#standard-password-input {
+  width: 200px;
+}
+
+#sign-in {
+  width: 200px;
+  margin-top: 30px;
+  height: 40px;
+}
+
+#sign-up-div {
+  margin-top: 20px;
+  
+}
+
+#sign-up {
+  margin-top: 10px;
+}
+
+#sign-up-p {
+  color: #082253;
+  padding-bottom: 20px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 40px;
 }
