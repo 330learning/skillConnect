@@ -1,44 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Chip from '@material-ui/core/Chip';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import Header from './Components/Header';
+import Login from './Login/Login';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import Signup from './Login/Signup';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p id="title">skillConnect</p>
-          <TextField
-            id="standard-search"
-            label="Username:"
-            type="search"
-            margin="normal"
-          />
+class App extends Component{
+    render() {
+        return (
+            <BrowserRouter>
+            <div>
+                <Header/>
+                <Switch>
+                    <Route exact path ='/' component={Login}/>
+                    <Route path = '/Signup' component={Signup}/>
+                </Switch>
 
-          <TextField
-            id="standard-password-input"
-            label="Password:"
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-          />
-
-          <Button variant="contained" color="primary" id="sign-in">
-            Sign in
-          </Button>
-          <div id="sign-up-div">
-            <p id="sign-up-p">Don't have an account?  </p>
-            <Button variant="contained" color="secondary" id="sign-up">
-              Sign up
-            </Button>
-          </div>
-        </header>
-      </div>
-    );
-  }
+            </div>
+            </BrowserRouter>
+        
+        )
+    }
 }
 
-export default App;
+export default App
