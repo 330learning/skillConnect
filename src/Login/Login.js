@@ -27,10 +27,11 @@ class Login extends Component {
           />
           {/* <p>Forgot Password</p> */}
           </div>
-
-          <Button variant="contained" color="primary" id="sign-in">
-            Sign in
-          </Button>
+          <NavLink to="/Learn" style={{textDecoration:'none'}} >
+            <Button variant="contained" color="primary" id="sign-in">
+              Sign in
+            </Button>
+            </NavLink>
           <div id="sign-up-div">
             <p id="sign-up-p">Don't have an account?</p>
             </div>
