@@ -7,13 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 
 const styles = {
   root: {
-    flexGrow:1,
     alignSelf:"stretch", 
+    backgroundColor:"black",
   },
   appBar: {
     backgroundColor:"#8b9dc3" 
@@ -25,6 +25,17 @@ const styles = {
     marginLeft: -12,
     marginRight: 0,
   },
+  logout: {
+      
+  },
+  toolbar : {
+    flexDirection:"row",
+    justifyContent:"space-between",
+  },
+  toolbarNoBack : {
+    flexDirection:"row",
+    justifyContent:"flex-end",
+  }
 };
 
 const navLinkStyle = {
@@ -33,31 +44,50 @@ const navLinkStyle = {
     flexDirection:"row",
     alignItems:"center",
     color:"white",
+    alignSelf:'center',
 };
 
 function ButtonAppBar(props) {
+  var noBack = props.noBack
   const { classes } = props;
+
+  if (noBack) {
+    return (
+      <div className={classes.root}>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar className={classes.toolbarNoBack}>
+            <NavLink to='/' activeStyle = {navLinkStyle}>
+              <Button color="inherit">Logout</Button>
+            </NavLink>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+  
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-            <NavLink to={props.to} activeStyle= {navLinkStyle}>
+      <AppBar className={classes.appBar} position="static">
+        <Toolbar className={classes.toolbar}>
+        <NavLink to={props.to} activeStyle = {navLinkStyle}>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <Icon>arrow_back</Icon>
+            <Icon>{props.Icon}</Icon>
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
             {props.lastPage}
           </Typography>
           </NavLink>
-
+          <NavLink to='/' activeStyle = {navLinkStyle}>
+            <Button color="inherit">Logout</Button>
+          </NavLink>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 
-ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// ButtonAppBar.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(ButtonAppBar);

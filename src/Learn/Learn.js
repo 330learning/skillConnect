@@ -1,5 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import NavBar from "../Components/NavBar"
 
 import "./Learn.css"
 import CourseCard from "../Components/CourseCard";
@@ -15,6 +16,7 @@ function Learn(props) {
 
   return (
     <div className= "Learn">
+    <NavBar noBack={true}/>
     <p id="course-header"> Explore Courses</p>
     <header className = "Learn-header">
 

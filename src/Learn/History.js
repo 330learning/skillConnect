@@ -29,18 +29,14 @@ function History() {
 
     return(
     <div className= "History">
-        <NavBar lastPage="Courses" to="/Learn"/>
-    <p id="course-header"> Hisotry Courses </p>
-    <header className = "Learn-header">
-
-      <CourseInfoCard name="African History" intro={african} image={AfricanHistory}/>
-      <CourseInfoCard name="American History" intro={american} image={AmericanHistory}/>
-      <CourseInfoCard name="Asian History" intro={asian} image={AsianHistory}/>
-      <CourseInfoCard name="European History" intro={european} image={EuropeanHistory}/>
-
-
-      
-    </header>      
+        <NavBar lastPage="Courses" to="/Learn" Icon="arrow_back"/>
+        <p id="course-header"> Hisotry Courses </p>
+        <header className = "History-header">
+            <CourseInfoCard name="African History" intro={african} image={AfricanHistory}/>
+            <CourseInfoCard name="American History" intro={american} image={AmericanHistory}/>
+            <CourseInfoCard name="Asian History" intro={asian} image={AsianHistory}/>
+            <CourseInfoCard name="European History" intro={european} image={EuropeanHistory}/>
+        </header>      
     </div>
     )
 
