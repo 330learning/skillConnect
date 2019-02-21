@@ -40,8 +40,7 @@ function History() {
 
 
       
-    </header>
-      
+    </header>      
     </div>
     )
 

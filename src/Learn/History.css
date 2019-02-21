@@ -1,4 +1,5 @@
 .History {
+    min-height: 100vh;
     background-color: #dfe3ee;
     display: flex;
     flex-direction: column;
