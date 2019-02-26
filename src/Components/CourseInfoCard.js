@@ -32,25 +32,25 @@ const styles = {
 class MediaCard extends React.Component {
   render() {
     const { classes } = this.props;
-    const [open, setOpen] = React.useState(false);
-    const [confirm, setConfirm] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
+    // const [confirm, setConfirm] = React.useState(false);
 
-    const handleOpen = function () {
-      setOpen(true);
-    }
+    // const handleOpen = function () {
+    //   setOpen(true);
+    // }
 
-    function handleClose() {
-      setOpen(false);
-    }
+    // function handleClose() {
+    //   setOpen(false);
+    // }
 
-    function handleConfirm() {
-      setConfirm(true);
-      setOpen(false);
-    }
+    // function handleConfirm() {
+    //   setConfirm(true);
+    //   setOpen(false);
+    // }
 
-    function handleConfirmClose() {
-      setConfirm(false);
-    }
+    // function handleConfirmClose() {
+    //   setConfirm(false);
+    // }
 
     return (
       <div>
@@ -59,7 +59,6 @@ class MediaCard extends React.Component {
             <CardMedia
               className={classes.media}
               image={this.props.image}
-              title="Contemplative Reptile"
             />
             <CardContent className={classes.content}>
               <Typography gutterBottom variant="h5" component="h2">
@@ -71,7 +70,9 @@ class MediaCard extends React.Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary" onClick={handleOpen}>
+            {/* <Button size="small" color="primary" onClick={handleOpen}> */}
+            <Button size="small" color="primary">
+
               Enroll
         </Button>
             <Button size="small" color="primary">
@@ -82,8 +83,8 @@ class MediaCard extends React.Component {
 
         {/* first dialog */}
         <Dialog
-          open={open}
-          onClose={handleClose}
+          // open={open}
+          // onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
@@ -94,18 +95,16 @@ class MediaCard extends React.Component {
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} color="primary">
+            <Button color="primary">
               No
           </Button>
-            <Button onClick={handleConfirm} color="primary" autoFocus>
+            <Button color="primary" autoFocus>
               Yes
           </Button>
           </DialogActions>
         </Dialog>
 
         <Dialog
-          open={confirm}
-          onClose={handleConfirmClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
@@ -116,7 +115,7 @@ class MediaCard extends React.Component {
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleConfirmClose} color="primary">
+            <Button color="primary">
               OK
           </Button>
           </DialogActions>
