@@ -14,6 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import { Renderer } from 'jss';
 
 
 const styles = {
@@ -30,51 +31,45 @@ const styles = {
   },
 };
 
-function CourseCard(props) {
-  const { classes } = props;
-  const heartColor = props.heartColor;
-  return (
-    <Card className={classes.card}>
-      <CardHeader
-        classes={{ title: classes.title }}
-        avatar={
-          <Avatar className={classes.avatar} style={{ backgroundColor: "black" }}>
-            {props.letter}
-          </Avatar>
-        }
-        title={props.title}
-        style={{ backgroundColor: "#f6f6f6", fontSize: "30px" }}
-      />
-      <CardMedia
-        image={props.image}
-        title="Math"
-        style={{ height: 100, paddingTop: '56%' }}
-      />
-
-      <CardActions style={{ backgroundColor: "#f6f6f6" }}>
-        <IconButton aria-label="Add to favorites" onClick={
-          function setColor() {
-            if (heartColor == "#c5d2e8") {
-              heartColor = "#f75d81";
-            } else {
-              heartColor = "#c5d2e8"
-            }
+class CourseCard extends React.Component {
+  render(){
+    const { classes } = this.props;
+    const heartColor = this.props.heartColor;
+    return (
+      <Card className={classes.card}>
+        <CardHeader
+          classes={{ title: classes.title }}
+          avatar={
+            <Avatar className={classes.avatar} style={{ backgroundColor: "black" }}>
+              {this.props.letter}
+            </Avatar>
           }
-        }>
-          <FavoriteIcon className={classes.heart} />
-        </IconButton>
-        <IconButton aria-label="Share">
-          <ShareIcon color='primary' />
-        </IconButton>
-        <IconButton
-          aria-label="Show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
+          title={this.props.title}
+          style={{ backgroundColor: "#f6f6f6", fontSize: "30px" }}
+        />
+        <CardMedia
+          image={this.props.image}
+          title="Math"
+          style={{ height: 100, paddingTop: '56%' }}
+        />
 
-    </Card>
-  );
+        <CardActions style={{ backgroundColor: "#f6f6f6" }}>
+          <IconButton aria-label="Add to favorites">
+            <FavoriteIcon className={classes.heart} />
+          </IconButton>
+          <IconButton aria-label="Share">
+            <ShareIcon color='primary' />
+          </IconButton>
+          <IconButton
+            aria-label="Show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+
+      </Card>
+    );
+  }
 }
 
 CourseCard.propTypes = {

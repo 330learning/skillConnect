@@ -19,115 +19,111 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const styles = {
   card: {
     maxWidth: 345,
-    margin:20,
+    margin: 20,
   },
   media: {
     height: 140,
   },
   content: {
-    height : 180,
+    height: 180,
   }
 };
 
+class MediaCard extends React.Component {
+  render() {
+    const { classes } = this.props;
+    const [open, setOpen] = React.useState(false);
+    const [confirm, setConfirm] = React.useState(false);
 
-
-function MediaCard(props) {
-  const { classes } = props;
-  const [open, setOpen] = React.useState(false);
-  const [confirm, setConfirm] = React.useState(false);
-
-  const handleOpen = function() {
+    const handleOpen = function () {
       setOpen(true);
-  }
+    }
 
-  function handleClose() {
-    setOpen(false);
-  }
+    function handleClose() {
+      setOpen(false);
+    }
 
-  function handleConfirm() {
-    setConfirm(true);
-    setOpen(false);
-  }
+    function handleConfirm() {
+      setConfirm(true);
+      setOpen(false);
+    }
 
-  function handleConfirmClose() {
-    setConfirm(false);
-  }
+    function handleConfirmClose() {
+      setConfirm(false);
+    }
 
-  return (
-    <div>
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.image}
-          title="Contemplative Reptile"
-        />
-        <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
-          </Typography>
-          <Typography component="p">
-            {props.intro}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary" onClick={handleOpen}>
-          Enroll
+    return (
+      <div>
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={this.props.image}
+              title="Contemplative Reptile"
+            />
+            <CardContent className={classes.content}>
+              <Typography gutterBottom variant="h5" component="h2">
+                {this.props.name}
+              </Typography>
+              <Typography component="p">
+                {this.props.intro}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" color="primary" onClick={handleOpen}>
+              Enroll
         </Button>
-        <Button size="small" color="primary">
-          Learn More
+            <Button size="small" color="primary">
+              Learn More
         </Button>
-      </CardActions>
-    </Card>
+          </CardActions>
+        </Card>
 
-    {/* first dialog */}
-    <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Are you sure you want to enroll?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            By enrolling in this course, you agree to terms and conditions of this application.
+        {/* first dialog */}
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Are you sure you want to enroll?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              By enrolling in this course, you agree to terms and conditions of this application.
           </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            No
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              No
           </Button>
-          <Button onClick={handleConfirm} color="primary" autoFocus>
-            Yes
+            <Button onClick={handleConfirm} color="primary" autoFocus>
+              Yes
           </Button>
-        </DialogActions>
-      </Dialog>
+          </DialogActions>
+        </Dialog>
 
-      <Dialog
-        open={confirm}
-        onClose={handleConfirmClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Success"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+        <Dialog
+          open={confirm}
+          onClose={handleConfirmClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Success"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
               You've been successfully enrolled in this course.
           </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleConfirmClose} color="primary">
-            OK
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleConfirmClose} color="primary">
+              OK
           </Button>
-        </DialogActions>
-      </Dialog>
-
-
-
-
+          </DialogActions>
+        </Dialog>
       </div>
-  );
+    );
+  }
 }
 
 MediaCard.propTypes = {
