@@ -5,6 +5,7 @@ import Signup from './Login/Signup';
 import Login from './Login/Login';
 import Learn from './Learn/Learn';
 import History from './Learn/History';
+import Profile from './Profile/Profile';
 
 class App extends Component{
     render() {

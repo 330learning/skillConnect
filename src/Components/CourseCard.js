@@ -19,47 +19,52 @@ import Avatar from '@material-ui/core/Avatar';
 const styles = {
   card: {
     minWidth: 325,
-    margin:20,
+    margin: 20,
   },
   media: {
     height: 10,
     paddingTop: '56.25%', // 16:9
   },
-  title : {
-    color:"black",
-  }
-  
-
+  title: {
+    color: "black",
+  },
 };
 
 function CourseCard(props) {
   const { classes } = props;
+  const heartColor = props.heartColor;
   return (
     <Card className={classes.card}>
       <CardHeader
-        classes={{title:classes.title}}
+        classes={{ title: classes.title }}
         avatar={
-          <Avatar className={classes.avatar} style={{backgroundColor:"black"}}>
+          <Avatar className={classes.avatar} style={{ backgroundColor: "black" }}>
             {props.letter}
           </Avatar>
         }
         title={props.title}
-        style={{backgroundColor:"#f6f6f6"}}
+        style={{ backgroundColor: "#f6f6f6", fontSize: "30px" }}
       />
       <CardMedia
         image={props.image}
         title="Math"
-        style={{height:100, paddingTop:'56%'}}
+        style={{ height: 100, paddingTop: '56%' }}
       />
-    
 
-
-    <CardActions style={{backgroundColor:"#f6f6f6"}}>
-      <IconButton aria-label="Add to favorites">
-          <FavoriteIcon color='inherit' />
+      <CardActions style={{ backgroundColor: "#f6f6f6" }}>
+        <IconButton aria-label="Add to favorites" onClick={
+          function setColor() {
+            if (heartColor == "#c5d2e8") {
+              heartColor = "#f75d81";
+            } else {
+              heartColor = "#c5d2e8"
+            }
+          }
+        }>
+          <FavoriteIcon className={classes.heart} />
         </IconButton>
         <IconButton aria-label="Share">
-          <ShareIcon color='primary'/>
+          <ShareIcon color='primary' />
         </IconButton>
         <IconButton
           aria-label="Show more"
@@ -67,7 +72,7 @@ function CourseCard(props) {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      
+
     </Card>
   );
 }
