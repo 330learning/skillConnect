@@ -9,6 +9,45 @@ import  Select from 'react-select';
 
 class Signup extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      username: "",
+      password: "",
+      password2: ""
+    }
+    this.updateUsername = this.updateUsername.bind(this)
+    this.updatePassword = this.updatePassword.bind(this)
+    this.updatePassword2 = this.updatePassword2.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  updateUsername(evt) {
+    this.setState({ username: evt.target.value})
+  }
+
+  updatePassword(evt) {
+    this.setState({ password: evt.target.value})
+  }
+
+  updatePassword2(evt) {
+    this.setState({ password2: evt.target.value})
+  }
+
+  handleClick() {
+    if (this.state.username == "") {
+      alert("Please enter username!")
+    }
+    else if (this.state.password == "") {
+      alert("Please enter password!")
+    } else if (this.state.password != this.state.password2) {
+      alert("Passwords are not the same!")
+    }
+    else {
+      window.location.href="/"
+    }
+  }
+
     render() {
         //options and styles for the selector
         var options = [
@@ -40,6 +79,8 @@ class Signup extends Component {
             label="Username:"
             type="search"
             margin="normal"
+            value={this.state.username}
+            onChange={this.updateUsername}
           />
           <TextField
             className = "Standard-input"
@@ -47,6 +88,8 @@ class Signup extends Component {
             type="password"
             autoComplete="current-password"
             margin="normal"
+            value={this.state.password}
+            onChange={this.updatePassword}
           />
           <TextField
             className = "Standard-input"
@@ -54,22 +97,22 @@ class Signup extends Component {
             type="password"
             autoComplete="current-password"
             margin="normal"
+            value={this.state.password2}
+            onChange={this.updatePassword2}
           />
 
         <p id="type-of-user">Field of Interests</p>
-        <Select className = "Selector" options = {options} isMulti styles={selectorStyle}/>
+          <Select className = "Selector" options = {options} isMulti styles={selectorStyle}/>
         
-        <NavLink to="/" style={{textDecoration:'none'}} >
-          <Button variant="contained" color="primary" id="sign-in">
-            FINISH
+          <Button variant="contained" color="primary" id="submit" onClick={this.handleClick}>
+            SUBMIT
+          </Button>
+
+          <NavLink to="/" style={{textDecoration:'none'}} >
+          <Button variant="contained" color="secondary" id="cancel">
+            CANCEL
           </Button>
           </NavLink>
-
-            <NavLink to="/" style={{textDecoration:'none'}} >
-            <Button variant="contained" color="secondary" id="sign-up">
-              CANCEL
-            </Button>
-            </NavLink>
 
         </header>
 
