@@ -1,14 +1,14 @@
-.Login {
+.Signin {
   text-align: center;
 }
 
-.Login-logo {
+.Signin-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
 
-.Login-header {
+.Signin-header {
   background-color: #dfe3ee;
   min-height: 100vh;
   display: flex;
@@ -20,7 +20,7 @@
   padding-top:30px;
 }
 
-.Login-link {
+.Signin-link {
   color: #61dafb;
 }
 
