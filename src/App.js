@@ -18,8 +18,8 @@ class App extends Component{
                     <Route path = '/Signup' component={Signup}/>
                     <Route exact path = '/Learn' component={Learn}/>
                     <Route path = '/Learn/History' component={History}/>
+                    <Route path = '/Profile' component={Profile}/>
                 </Switch>
-
             </div>
             </BrowserRouter>
         
