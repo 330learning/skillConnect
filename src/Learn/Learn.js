@@ -28,8 +28,12 @@ class Learn extends React.Component {
 
         </header>
         <header className="Learn-header">
+          <NavLink to='/Learn/Math' style={{ textDecoration: 'none' }}>
           <CourseCard image={Math} title="Math" letter="M" heartColor="#c5d2e8" />
+          </NavLink>
+          <NavLink to='/Learn/Programming' style={{ textDecoration: 'none' }}>
           <CourseCard image={Programming} title="Programming" letter="P" heartColor="#c5d2e8" />
+          </NavLink>
           <CourseCard image={Speech} title="Speech" letter="S" heartColor="#c5d2e8" />
 
         </header>
