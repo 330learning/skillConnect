@@ -14,7 +14,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import { Renderer } from 'jss';
+import { NavLink } from "react-router-dom";
+
 
 
 const styles = {
@@ -23,46 +24,66 @@ const styles = {
     margin: 20,
   },
   media: {
-    height: 10,
+    height: 100,
     paddingTop: '56.25%', // 16:9
   },
   title: {
     color: "black",
   },
+  avatar : {
+    backgroundColor: "black",
+  },
+  expand : {
+    alignSelf:"flex-end"
+  }
 };
 
 class CourseCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={favColor:"grey"}
+  }
+
+
+  toggleColor() {
+    if (this.state.favColor == "grey") {
+      this.setState({favColor:'red'})
+    } else {
+      this.setState({favColor:'grey'})
+    }
+  }
+  
+
+
   render(){
     const { classes } = this.props;
-    const heartColor = this.props.heartColor;
+
     return (
+
       <Card className={classes.card}>
+        <NavLink to= {this.props.to} style={{ textDecoration: 'none' }}>
         <CardHeader
           classes={{ title: classes.title }}
           avatar={
-            <Avatar className={classes.avatar} style={{ backgroundColor: "black" }}>
+            <Avatar className={classes.avatar}>
               {this.props.letter}
             </Avatar>
           }
           title={this.props.title}
-          style={{ backgroundColor: "#f6f6f6", fontSize: "30px" }}
         />
         <CardMedia
           image={this.props.image}
-          title="Math"
-          style={{ height: 100, paddingTop: '56%' }}
+          className={classes.media}
         />
-
-        <CardActions style={{ backgroundColor: "#f6f6f6" }}>
-          <IconButton aria-label="Add to favorites">
-            <FavoriteIcon className={classes.heart} />
+        </NavLink>
+        <CardActions>
+          <IconButton onClick={()=>this.toggleColor()}>
+            <FavoriteIcon style={{color:this.state.favColor}}/>
           </IconButton>
-          <IconButton aria-label="Share">
+          <IconButton>
             <ShareIcon color='primary' />
           </IconButton>
-          <IconButton
-            aria-label="Show more"
-          >
+          <IconButton className={classes.expand}>
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>

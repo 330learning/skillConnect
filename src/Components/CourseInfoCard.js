@@ -30,27 +30,35 @@ const styles = {
 };
 
 class MediaCard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      open:false,
+      confirm: false,
+    }
+  }
+
+  handleOpen() {
+    this.setState({open:true})
+  }
+
+  handleClose() {
+    this.setState({open:false})
+  }
+
+  handleConfirm() {
+    this.setState({open:false,confirm:true})
+  }
+
+  handleConfirmClose() {
+    this.setState({confirm:false})
+    console.log(this.state.confirm)
+  }
+
+
+
   render() {
     const { classes } = this.props;
-    // const [open, setOpen] = React.useState(false);
-    // const [confirm, setConfirm] = React.useState(false);
-
-    // const handleOpen = function () {
-    //   setOpen(true);
-    // }
-
-    // function handleClose() {
-    //   setOpen(false);
-    // }
-
-    // function handleConfirm() {
-    //   setConfirm(true);
-    //   setOpen(false);
-    // }
-
-    // function handleConfirmClose() {
-    //   setConfirm(false);
-    // }
 
     return (
       <div>
@@ -70,11 +78,9 @@ class MediaCard extends React.Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            {/* <Button size="small" color="primary" onClick={handleOpen}> */}
-            <Button size="small" color="primary">
-
+            <Button size="small" color="primary" onClick={() => this.handleOpen()}>
               Enroll
-        </Button>
+            </Button>
             <Button size="small" color="primary">
               Learn More
         </Button>
@@ -83,39 +89,34 @@ class MediaCard extends React.Component {
 
         {/* first dialog */}
         <Dialog
-          // open={open}
-          // onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
+          open={this.state.open}
+          onClose={() => this.handleClose()}
         >
-          <DialogTitle id="alert-dialog-title">{"Are you sure you want to enroll?"}</DialogTitle>
+          <DialogTitle>{"Are you sure you want to enroll?"}</DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+            <DialogContentText>
               By enrolling in this course, you agree to terms and conditions of this application.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary">
+            <Button color="primary" onClick={() => this.handleClose()}>
               No
           </Button>
-            <Button color="primary" autoFocus>
+            <Button color="primary" onClick={() => this.handleConfirm()}>
               Yes
           </Button>
           </DialogActions>
         </Dialog>
 
-        <Dialog
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Success"}</DialogTitle>
+        <Dialog open={this.state.confirm} onClose={() => this.handleConfirmClose()}>
+          <DialogTitle>{"Success"}</DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+            <DialogContentText>
               You've been successfully enrolled in this course.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary">
+            <Button color="primary" onClick={() => this.handleConfirmClose()}>
               OK
           </Button>
           </DialogActions>
