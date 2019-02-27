@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { NavLink, Redirect } from "react-router-dom";
+import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -39,7 +40,7 @@ const styles = {
 
 class ButtonAppBar extends React.Component {
 
-  render(){
+  render() {
     var noBack = this.props.noBack
     const { classes } = this.props;
 
@@ -57,8 +58,17 @@ class ButtonAppBar extends React.Component {
         <div className={classes.root}>
           <AppBar className={classes.appBar} position="static">
             <Toolbar className={classes.toolbarNoBack}>
+              <NavLink to='/Learn' activeStyle={navLinkStyle}>
+                <Button style={{color:"white"}}>Learn</Button>
+              </NavLink>
+              <NavLink to='/Teach' activeStyle={navLinkStyle}>
+                <Button style={{color:"white"}}>Teach</Button>
+              </NavLink>
+              <NavLink to='/Profile' activeStyle={navLinkStyle}>
+                <Button style={{color:"white"}}>Profile</Button>
+              </NavLink>
               <NavLink to='/' activeStyle={navLinkStyle}>
-                <Button color="inherit">Logout</Button>
+                <Button style={{color:"white"}}>Logout</Button>
               </NavLink>
             </Toolbar>
           </AppBar>
@@ -78,6 +88,7 @@ class ButtonAppBar extends React.Component {
                 {this.props.lastPage}
               </Typography>
             </NavLink>
+            
             <NavLink to='/' activeStyle={navLinkStyle}>
               <Button color="inherit">Logout</Button>
             </NavLink>

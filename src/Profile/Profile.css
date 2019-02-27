@@ -1,4 +1,10 @@
 .Selector {
-    width: 80%;
+    width: 400px;
     margin: 0 auto;
+}
+
+img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }

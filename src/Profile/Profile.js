@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Select from 'react-select';
 import "./Profile.css";
 import Button from '@material-ui/core/Button';
+import NavBar from "../Components/NavBar";
+import ProfileCard from './ProfileCard';
+import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
+
 
 const styles = theme => ({
     container: {
@@ -26,11 +27,18 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
-    state = {}
+    state = {
+        firstName: "Old",
+        lastName: "Master",
+        age: 85,
+        email: "naive@gmail.com",
+        gender: "None"
+    }
 
     handleChange = (e, { value }) => this.setState({ value })
 
     render() {
+        var { firstName, lastName, age, email, gender } = this.state;
         var options = [
             { value: 'Arts', label: 'Arts' },
             { value: 'Chem', label: 'Chemistry' },
@@ -63,59 +71,24 @@ class Profile extends Component {
             width: "300px"
         }
 
-        function buttonClick() {
-            alert("You have successfully update you profile!");
-        }
-
         const { classes } = this.props;
         return (
             <div style={divStyle}>
-                <div style={{height:"50px"}}></div>
+                <NavBar noBack={true} />
+                <div style={{ height: "50px" }}></div>
                 <h1>User Profile</h1>
-                <TextField
-                    id="standard-dense"
-                    label="First Name"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Last Name"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="E-mail"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Phone Number"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Your Location"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
+                <img src={require("../Images/1.png")} />
+                <ProfileCard></ProfileCard>
                 <br />
-
-                <p id="type-of-user">Field of Interests: </p>
-                <Select className="Selector" options={options} isMulti styles={selectorStyle} />
                 <br />
-                <Button variant="contained" color="primary" id="sign-in" onClick={buttonClick}>
-                    Update
-                </Button>
-                <div style={{height:"600px"}}></div>
+                <Link to="/EditProfile">
+                    <Button variant="contained" color="primary" className={classes.button}>
+                        Edit Profile
+                    </Button>
+                </Link>
+                
+                <div style={{ height: "500px" }}></div>
+                
             </div>
         );
     }

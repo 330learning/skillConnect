@@ -5,12 +5,14 @@ import Signup from './Signin/Signup';
 import Signin from './Signin/Signin';
 import Learn from './Learn/Learn';
 import History from './Learn/History';
+import Teach from './Teach/Teach';
 import Art from './Learn/Art'
 import Literature from './Learn/Literature'
 import Math from './Learn/Math';
 import Programming from './Learn/Programming';
 import Speech from './Learn/Speech';
 import Profile from './Profile/Profile';
+import EditProfile from './Profile/ProfileEdit'
 
 class App extends React.Component {
     state = {
@@ -21,7 +23,7 @@ class App extends React.Component {
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div>
-                <Header/>
+                <Header />
                 <Switch>
                     <Route exact path ='/' component={Signin}/>
                     <Route path = '/Signup' component={Signup}/>
@@ -33,6 +35,8 @@ class App extends React.Component {
                     <Route path='/Learn/Art' component={Art} />
                     <Route path='/Learn/Literature' component={Literature} />
                     <Route path = '/Profile' component={Profile}/>
+                    <Route path='/Teach' component={Teach} />
+                    <Route path='/EditProfile' component={EditProfile} />
                 </Switch>
             </div>
             </BrowserRouter>
