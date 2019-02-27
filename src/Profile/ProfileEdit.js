@@ -11,8 +11,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import ProfileCard from './ProfileCard';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
+
 
 
 const styles = theme => ({
@@ -33,16 +33,24 @@ const styles = theme => ({
     },
 });
 
-class Profile extends Component {
+class EditProfile extends Component {
     state = {
-        firstName: "长者",
-        lastName: "蛤",
-        age: 85,
+        firstName: "Old",
+        lastName: "Master",
+        age: 65,
         email: "naive@gmail.com",
-        gender: "None"
+        gender: "Male"
     }
 
     handleChange = (e, { value }) => this.setState({ value })
+
+    handleSelectChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
+
+    buttonClick = () => {
+        alert("You have successfully update you profile!");
+    }
 
     render() {
         var { firstName, lastName, age, email, gender } = this.state;
@@ -84,25 +92,71 @@ class Profile extends Component {
                 <NavBar noBack={true} />
                 <div style={{ height: "50px" }}></div>
                 <h1>User Profile</h1>
-                <img src={require("../Images/1.png")} />
-                <ProfileCard></ProfileCard>
+                <TextField
+                    id="standard-with-placeholder"
+                    label="First Name:"
+                    placeholder={firstName}
+                    className={classes.textField}
+                    margin="normal"
+                />
+                <TextField
+                    id="standard-with-placeholder"
+                    label="Last Name:"
+                    placeholder={lastName}
+                    className={classes.textField}
+                    margin="normal"
+                />
+
+                <TextField
+                    id="standard-with-placeholder"
+                    label="Your Age:"
+                    placeholder={age}
+                    className={classes.textField}
+                    margin="normal"
+                    onChange={this.handleChange}
+                />
+                <br />
+                <FormControl className={classes.formControl} style={{ width: "200px" }}>
+                    <InputLabel htmlFor="age-simple">Gender</InputLabel>
+                    <Select
+                        value={this.state.gender}
+                        onChange={this.handleSelectChange}
+                        inputProps={{
+                            name: 'gender',
+                            id: 'age-simple',
+                        }}
+                    >
+                        <MenuItem value={"None"}>None</MenuItem>
+                        <MenuItem value={20}>Male</MenuItem>
+                        <MenuItem value={30}>Female</MenuItem>
+                    </Select>
+                </FormControl>
+
+                <TextField
+                    id="standard-with-placeholder"
+                    label="Your Email:"
+                    placeholder={email}
+                    className={classes.textField}
+                    margin="normal"
+                />
+
                 <br />
                 <br />
-                <Link to="/EditProfile">
+
+                <Link to="/Profile">
                     <Button variant="contained" color="primary" className={classes.button}>
-                        Edit Profile
+                        OK
                     </Button>
                 </Link>
-                
                 <div style={{ height: "500px" }}></div>
-                
+
             </div>
         );
     }
 }
 
-Profile.propTypes = {
+EditProfile.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Profile);
+export default withStyles(styles)(EditProfile);
