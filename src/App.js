@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Signup from './Signin/Signup';
 import Signin from './Signin/Signin';
 import Learn from './Learn/Learn';
@@ -10,8 +10,12 @@ import Programming from './Learn/Programming';
 import Speech from './Learn/Speech';
 import Profile from './Profile/Profile';
 
-class App extends Component{
+class App extends React.Component {
+    state = {
+        value: 0
+    };
     render() {
+        
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div>
@@ -27,8 +31,9 @@ class App extends Component{
                     <Route path = '/Profile' component={Profile}/>
                 </Switch>
             </div>
+
             </BrowserRouter>
-        
+
         )
     }
 }

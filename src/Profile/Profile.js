@@ -55,7 +55,8 @@ class Profile extends Component {
             flexDirection: "column",
             flexWrap: "wrap",
             justifyContent: "flex-start",
-            alignItems: "center"
+            alignItems: "center",
+            backgroundColor: "#dfe3ee"
         }
 
         var textStyle = {
@@ -69,6 +70,8 @@ class Profile extends Component {
         const { classes } = this.props;
         return (
             <div style={divStyle}>
+                <div style={{height:"50px"}}></div>
+                <h1>User Profile</h1>
                 <TextField
                     id="standard-dense"
                     label="First Name"
@@ -112,6 +115,7 @@ class Profile extends Component {
                 <Button variant="contained" color="primary" id="sign-in" onClick={buttonClick}>
                     Update
                 </Button>
+                <div style={{height:"600px"}}></div>
             </div>
         );
     }
