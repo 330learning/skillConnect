@@ -5,6 +5,8 @@ import Signup from './Signin/Signup';
 import Signin from './Signin/Signin';
 import Learn from './Learn/Learn';
 import History from './Learn/History';
+import Art from './Learn/Art'
+import Literature from './Learn/Literature'
 import Math from './Learn/Math';
 import Programming from './Learn/Programming';
 import Speech from './Learn/Speech';
@@ -28,10 +30,11 @@ class App extends React.Component {
                     <Route path = '/Learn/Math' component={Math}/>
                     <Route path = '/Learn/Programming' component={Programming}/>
                     <Route path = '/Learn/Speech' component={Speech}/>
+                    <Route path='/Learn/Art' component={Art} />
+                    <Route path='/Learn/Literature' component={Literature} />
                     <Route path = '/Profile' component={Profile}/>
                 </Switch>
             </div>
-
             </BrowserRouter>
 
         )
