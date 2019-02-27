@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import NavBar from "../Components/NavBar"
 
 import "./Learn.css"
@@ -20,17 +19,15 @@ class Learn extends React.Component {
         <p id="course-header"> Explore Courses</p>
         <header className="Learn-header">
 
-          <CourseCard image={Art} title="Art" letter="A" heartColor="#c5d2e8" />
-          <NavLink to='/Learn/History' style={{ textDecoration: 'none' }}>
-            <CourseCard image={History} title="History" letter="H" heartColor="#c5d2e8" />
-          </NavLink>
-          <CourseCard image={Literature} title="Literature" letter="L" heartColor="#c5d2e8" />
+          <CourseCard image={Art} title="Art" letter="A" to="/Learn/Art"/>
+          <CourseCard image={History} title="History" letter="H" to="/Learn/History"/>
+          <CourseCard image={Literature} title="Literature" letter="L" to="/Learn/Literature"/>
 
         </header>
         <header className="Learn-header">
-          <CourseCard image={Math} title="Math" letter="M" heartColor="#c5d2e8" />
-          <CourseCard image={Programming} title="Programming" letter="P" heartColor="#c5d2e8" />
-          <CourseCard image={Speech} title="Speech" letter="S" heartColor="#c5d2e8" />
+          <CourseCard image={Math} title="Math" letter="M" to="/Learn/Math"/>
+          <CourseCard image={Programming} title="Programming" letter="P" to="/Learn/Programming"/>
+          <CourseCard image={Speech} title="Speech" letter="S" to="/Learn/Speech"/>
 
         </header>
 
