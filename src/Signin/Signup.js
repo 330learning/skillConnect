@@ -35,12 +35,12 @@ class Signup extends Component {
   }
 
   handleClick() {
-    if (this.state.username == "") {
+    if (this.state.username === "") {
       alert("Please enter username!")
     }
-    else if (this.state.password == "") {
+    else if (this.state.password === "") {
       alert("Please enter password!")
-    } else if (this.state.password != this.state.password2) {
+    } else if (this.state.password !== this.state.password2) {
       alert("Passwords are not the same!")
     }
     else {

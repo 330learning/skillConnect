@@ -26,10 +26,10 @@ class Signin extends Component {
   }
 
   handleClick() {
-    if (this.state.username == "") {
+    if (this.state.username === "") {
       alert("Please enter username!")
     }
-    else if (this.state.password == "") {
+    else if (this.state.password === "") {
       alert("Please enter password!")
     }
     else {
