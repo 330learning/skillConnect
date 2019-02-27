@@ -23,7 +23,6 @@ class Header extends Component {
                     style={{ marginTop: "40px" }}
                 >
                     <Link to="/Learn"><Tab label="Learn" style={{ float: "right", color: "white"}} /></Link>
-                    <Link to="/Learn/History"><Tab label="History" style={{ float: "right", color: "white" }} /></Link>
                     <Link to="/Profile"><Tab label="Profile" style={{ float: "right", color: "white" }} /></Link>
                 </Tabs>
             </div>
