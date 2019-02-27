@@ -10,6 +10,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 
 
 import Typography from '@material-ui/core/Typography';
@@ -33,33 +34,41 @@ const styles = {
   avatar : {
     backgroundColor: "black",
   },
+  actions : {
+    flexDirection:"row",
+    justifyContent: "space-between",
+  },
   expand : {
-    alignSelf:"flex-end"
   }
 };
 
 class CourseCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state={favColor:"grey"}
+    this.state={
+      favColor:"grey",
+      expand : false
+    }
   }
 
 
   toggleColor() {
-    if (this.state.favColor == "grey") {
+    if (this.state.favColor === "grey") {
       this.setState({favColor:'red'})
     } else {
       this.setState({favColor:'grey'})
     }
   }
   
+  onExpand() {
+    this.setState({expand: !this.state.expand})
+  }
 
 
   render(){
     const { classes } = this.props;
 
     return (
-
       <Card className={classes.card}>
         <NavLink to= {this.props.to} style={{ textDecoration: 'none' }}>
         <CardHeader
@@ -76,18 +85,22 @@ class CourseCard extends React.Component {
           className={classes.media}
         />
         </NavLink>
-        <CardActions>
+
+        <CardActions className={classes.actions}>
           <IconButton onClick={()=>this.toggleColor()}>
             <FavoriteIcon style={{color:this.state.favColor}}/>
           </IconButton>
-          <IconButton>
-            <ShareIcon color='primary' />
-          </IconButton>
-          <IconButton className={classes.expand}>
+          
+          <IconButton className={classes.expand} onClick={()=> this.onExpand()}>
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
 
+        <Collapse in={this.state.expand} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Method:</Typography>
+        </CardContent>
+        </Collapse>
       </Card>
     );
   }

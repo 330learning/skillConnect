@@ -6,6 +6,11 @@ import Signin from './Signin/Signin';
 import Learn from './Learn/Learn';
 import History from './Learn/History';
 import Teach from './Teach/Teach';
+import Art from './Learn/Art'
+import Literature from './Learn/Literature'
+import Math from './Learn/Math';
+import Programming from './Learn/Programming';
+import Speech from './Learn/Speech';
 import Profile from './Profile/Profile';
 import EditProfile from './Profile/ProfileEdit'
 
@@ -17,18 +22,23 @@ class App extends React.Component {
         
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
-                <div>
-                    <Header />
-                    <Switch>
-                        <Route exact path='/' component={Signin} />
-                        <Route path='/Signup' component={Signup} />
-                        <Route exact path='/Learn' component={Learn} />
-                        <Route path='/Learn/History' component={History} />
-                        <Route path='/Teach' component={Teach} />
-                        <Route path='/Profile' component={Profile} />
-                        <Route path='/EditProfile' component={EditProfile} />
-                    </Switch>
-                </div>
+            <div>
+                <Header />
+                <Switch>
+                    <Route exact path ='/' component={Signin}/>
+                    <Route path = '/Signup' component={Signup}/>
+                    <Route exact path = '/Learn' component={Learn}/>
+                    <Route path = '/Learn/History' component={History}/>
+                    <Route path = '/Learn/Math' component={Math}/>
+                    <Route path = '/Learn/Programming' component={Programming}/>
+                    <Route path = '/Learn/Speech' component={Speech}/>
+                    <Route path='/Learn/Art' component={Art} />
+                    <Route path='/Learn/Literature' component={Literature} />
+                    <Route path = '/Profile' component={Profile}/>
+                    <Route path='/Teach' component={Teach} />
+                    <Route path='/EditProfile' component={EditProfile} />
+                </Switch>
+            </div>
             </BrowserRouter>
 
         )
