@@ -14,25 +14,15 @@ const styles = theme => ({
 });
 
 class Header extends Component {
-    state = {
-        value: 0
-    };
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
-
     render() {
         const { classes } = this.props;
-        const { value } = this.state;
         return (
             <div id="header">
                 <p id="title">skillConnect</p>
                 <Tabs
-                    value={value}
-                    onChange={this.handleChange}
                     style={{ marginTop: "40px" }}
                 >
-                    <Link to="/Learn"><Tab label="Learn" style={{ float: "right", color: "white" }} /></Link>
+                    <Link to="/Learn"><Tab label="Learn" style={{ float: "right", color: "white"}} /></Link>
                     <Link to="/Learn/History"><Tab label="History" style={{ float: "right", color: "white" }} /></Link>
                     <Link to="/Profile"><Tab label="Profile" style={{ float: "right", color: "white" }} /></Link>
                 </Tabs>
