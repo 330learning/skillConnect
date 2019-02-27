@@ -5,6 +5,8 @@ import Signup from './Signin/Signup';
 import Signin from './Signin/Signin';
 import Learn from './Learn/Learn';
 import History from './Learn/History';
+import Art from './Learn/Art'
+import Literature from './Learn/Literature'
 import Profile from './Profile/Profile';
 
 class App extends React.Component {
@@ -22,6 +24,8 @@ class App extends React.Component {
                         <Route path='/Signup' component={Signup} />
                         <Route exact path='/Learn' component={Learn} />
                         <Route path='/Learn/History' component={History} />
+                        <Route path='/Learn/Art' component={Art} />
+                        <Route path='/Learn/Literature' component={Literature} />
                         <Route path='/Profile' component={Profile} />
                     </Switch>
                 </div>
