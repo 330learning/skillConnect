@@ -26,6 +26,17 @@ const styles = {
   },
   content: {
     height: 180,
+  },
+  more: {
+    minHeight:300,
+    minWidth: 300,
+    marginTop:30,
+  },
+  dialogTitle: {
+    backgroundColor:"#3b5998",
+    '& h2': {
+      color: 'white',
+    }
   }
 };
 
@@ -35,6 +46,7 @@ class MediaCard extends React.Component {
     this.state={
       open:false,
       confirm: false,
+      more: false,
     }
   }
 
@@ -55,6 +67,13 @@ class MediaCard extends React.Component {
     console.log(this.state.confirm)
   }
 
+  handleMore() {
+    this.setState({more:true})
+  }
+  handleMoreClose() {
+    this.setState({more:false})
+  }
+
 
 
   render() {
@@ -63,7 +82,6 @@ class MediaCard extends React.Component {
     return (
       <div>
         <Card className={classes.card}>
-          <CardActionArea>
             <CardMedia
               className={classes.media}
               image={this.props.image}
@@ -76,12 +94,11 @@ class MediaCard extends React.Component {
                 {this.props.intro}
               </Typography>
             </CardContent>
-          </CardActionArea>
           <CardActions>
             <Button size="small" color="primary" onClick={() => this.handleOpen()}>
               Enroll
             </Button>
-            <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={() => this.handleMore()}>
               Learn More
         </Button>
           </CardActions>
@@ -108,6 +125,7 @@ class MediaCard extends React.Component {
           </DialogActions>
         </Dialog>
 
+        {/* second dialog */}
         <Dialog open={this.state.confirm} onClose={() => this.handleConfirmClose()}>
           <DialogTitle>{"Success"}</DialogTitle>
           <DialogContent>
@@ -121,6 +139,55 @@ class MediaCard extends React.Component {
           </Button>
           </DialogActions>
         </Dialog>
+
+        {/* learn more dialog */}
+        <Dialog  open={this.state.more} onClose={() => this.handleMoreClose()} >
+          <DialogTitle className={classes.dialogTitle}>{this.props.name}</DialogTitle>
+          <DialogContent className={classes.more}>
+          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
+            Instructor:
+          </DialogContentText>
+          <DialogContentText style={{color:"black"}}>
+            John Cash
+          </DialogContentText>
+        
+          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
+            Meeting Time:
+          </DialogContentText>
+          <DialogContentText style={{color:"black"}}>
+            Monday Wednesday Friday 10:00 P.M.
+          </DialogContentText>
+
+
+          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
+            Total Length:
+          </DialogContentText>
+          <DialogContentText style={{color:"black"}}>
+            16 Hours
+          </DialogContentText>
+
+
+          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
+            Tuition: 
+          </DialogContentText>
+          <DialogContentText style={{color:"black"}}>
+            $50
+          </DialogContentText>
+          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
+            Course Description:
+          </DialogContentText>
+          <DialogContentText style={{color:"black"}}>
+            {this.props.intro}
+          </DialogContentText>
+
+          </DialogContent>
+          <DialogActions>
+            <Button color="primary" onClick={() => this.handleMoreClose()}>
+              OK
+          </Button>
+          </DialogActions>
+        </Dialog>
+
       </div>
     );
   }
