@@ -28,8 +28,8 @@ const styles = theme => ({
 
 class Profile extends Component {
     state = {
-        firstName: "长者",
-        lastName: "蛤",
+        firstName: "Old",
+        lastName: "Master",
         age: 85,
         email: "naive@gmail.com",
         gender: "None"
