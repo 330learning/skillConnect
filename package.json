@@ -10,6 +10,7 @@
     "algolia-places-react": "^1.4.0",
     "install": "^0.12.2",
     "npm": "^6.8.0",
+    "yarn": "^1.13.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-native": "^0.58.5",
