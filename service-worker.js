@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/skillConnect/precache-manifest.09ac61dd7d4bdf952ac11bdc01038771.js"
+  "/skillConnect/precache-manifest.e2542417fcece20aecaba52954470350.js"
 );
 
 workbox.clientsClaim();
