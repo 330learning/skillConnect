@@ -15,12 +15,12 @@ import Profile from './Profile/Profile';
 import EditProfile from './Profile/ProfileEdit';
 import "./App.css";
 
-class App extends React.Component {
+class App extends Component {
     state = {
         value: 0
     };
     render() {
-        
+        console.log(process.env.PUBLIC_URL);
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="main">

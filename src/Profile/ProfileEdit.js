@@ -12,6 +12,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
+import '../Signin/Signin.css'
 
 
 
@@ -96,14 +97,14 @@ class EditProfile extends Component {
                     id="standard-with-placeholder"
                     label="First Name:"
                     placeholder={firstName}
-                    className={classes.textField}
+                    className = "Standard-input"
                     margin="normal"
                 />
                 <TextField
                     id="standard-with-placeholder"
                     label="Last Name:"
                     placeholder={lastName}
-                    className={classes.textField}
+                    className = "Standard-input"
                     margin="normal"
                 />
 
@@ -111,12 +112,12 @@ class EditProfile extends Component {
                     id="standard-with-placeholder"
                     label="Your Age:"
                     placeholder={age}
-                    className={classes.textField}
+                    className = "Standard-input"
                     margin="normal"
                     onChange={this.handleChange}
                 />
                 <br />
-                <FormControl className={classes.formControl} style={{ width: "200px" }}>
+                <FormControl className={classes.formControl} style={{ width: "400px" }}>
                     <InputLabel htmlFor="age-simple">Gender</InputLabel>
                     <Select
                         value={this.state.gender}
@@ -136,7 +137,7 @@ class EditProfile extends Component {
                     id="standard-with-placeholder"
                     label="Your Email:"
                     placeholder={email}
-                    className={classes.textField}
+                    className = "Standard-input"
                     margin="normal"
                 />
 
