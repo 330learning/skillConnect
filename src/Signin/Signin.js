@@ -32,7 +32,7 @@ class Signin extends Component {
       alert("Please enter password!")
     }
     else {
-      window.location.href="/Learn"
+      this.props.history.push('Learn')
     }
   }
 

@@ -44,7 +44,7 @@ class Signup extends Component {
       alert("Passwords are not the same!")
     }
     else {
-      window.location.href="/"
+      this.props.history.goBack()
     }
   }
 

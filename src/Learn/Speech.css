@@ -10,6 +10,7 @@
   .Speech-header {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     font-size: 24px;
     color: black;
     margin-top:10px;
