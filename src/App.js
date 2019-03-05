@@ -12,7 +12,8 @@ import Math from './Learn/Math';
 import Programming from './Learn/Programming';
 import Speech from './Learn/Speech';
 import Profile from './Profile/Profile';
-import EditProfile from './Profile/ProfileEdit'
+import EditProfile from './Profile/ProfileEdit';
+import "./App.css";
 
 class App extends Component {
     state = {
@@ -22,7 +23,7 @@ class App extends Component {
         console.log(process.env.PUBLIC_URL);
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <div>
+            <div className="main">
                 <Header />
                 <Switch>
                     <Route exact path ='/' component={Signin}/>

@@ -20,24 +20,21 @@ class Learn extends React.Component {
     return (
       <div className="Learn">
         <NavBar noBack={true} />
-        <p id="course-header"> Explore Courses</p>
+        <p id="course-header"> Select A Category </p>
         <header className="Learn-header">
-
+          <React.Fragment>
           <CourseCard image={Art} title="Art" letter="A" to="/Learn/Art"/>
           <CourseCard image={Language} title="Language" letter="L" to="/Learn/Language"/>
           <CourseCard image={History} title="History" letter="H" to="/Learn/History"/>
           <CourseCard image={Literature} title="Literature" letter="L" to="/Learn/Literature"/>
           <CourseCard image={Design} title="Design" letter="D" to="/Learn/Design"/>
 
-        </header>
-        <header className="Learn-header">
-          
           <CourseCard image={Math} title="Math" letter="M" to="/Learn/Math"/>
           <CourseCard image={Programming} title="Programming" letter="P" to="/Learn/Programming"/>
           <CourseCard image={Speech} title="Speech" letter="S" to="/Learn/Speech"/>
           <CourseCard image={Music} title="Music" letter="M" to="/Learn/Music"/>
           <CourseCard image={Sports} title="Sports" letter="S" to="/Learn/Sports"/>
-
+          </React.Fragment> 
 
         </header>
 
