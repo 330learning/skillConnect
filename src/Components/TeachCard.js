@@ -28,7 +28,7 @@ const styles = {
   content: {
     height: 180,
   },
-  more: {
+  view: {
     minHeight:300,
     minWidth: 300,
     marginTop:30,
@@ -45,41 +45,42 @@ class MediaCard extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      open:false,
+      delete:false,
       confirm: false,
-      more: false,
+      view: false,
     }
   }
 
-  handleOpen() {
-    this.setState({open:true})
+  handleDelete() {
+    this.setState({delete:true})
   }
 
-  handleClose() {
-    this.setState({open:false})
+  handleDeleteClose() {
+    this.setState({delete:false})
   }
 
   handleConfirm() {
-    this.setState({open:false,confirm:true})
+    this.setState({delete:false,confirm:true})
   }
 
   handleConfirmClose() {
     this.setState({confirm:false})
-    console.log(this.state.confirm)
   }
 
-  handleMore() {
-    this.setState({more:true})
+  handleView() {
+    this.setState({view:true})
   }
-  handleMoreClose() {
-    this.setState({more:false})
+  handleViewClose() {
+    this.setState({view:false})
   }
 
 
 
   render() {
     const { classes } = this.props;
-
+    if(this.state.confirm) {
+        return '';
+    }
     return (
       <div>
         <Card className={classes.card}>
@@ -96,28 +97,28 @@ class MediaCard extends React.Component {
               </Typography>
             </CardContent>
           <CardActions>
-            <Button size="small" color="primary" onClick={() => this.handleOpen()}>
-              Enroll
+            <Button size="small" color="primary" onClick={() => this.handleDelete()}>
+              Delete
             </Button>
-            <Button size="small" color="primary" onClick={() => this.handleMore()}>
-              Learn More
+            <Button size="small" color="primary" onClick={() => this.handleView()}>
+              View Students
         </Button>
           </CardActions>
         </Card>
 
         {/* first dialog */}
         <Dialog
-          open={this.state.open}
-          onClose={() => this.handleClose()}
+          open={this.state.delete}
+          onClose={() => this.handleDeleteClose()}
         >
-          <DialogTitle>{"Are you sure you want to enroll?"}</DialogTitle>
+          <DialogTitle>{"Are you sure you want to delete it?"}</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              By enrolling in this course, you agree to terms and conditions of this application.
+              They course will be gone for good.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={() => this.handleClose()}>
+            <Button color="primary" onClick={() => this.handleDeleteClose()}>
               No
           </Button>
             <Button color="primary" onClick={() => this.handleConfirm()}>
@@ -131,7 +132,7 @@ class MediaCard extends React.Component {
           <DialogTitle>{"Success"}</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              You've been successfully enrolled in this course.
+              You've been successfully deleted this course.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -141,49 +142,40 @@ class MediaCard extends React.Component {
           </DialogActions>
         </Dialog>
 
-        {/* learn more dialog */}
-        <Dialog  open={this.state.more} onClose={() => this.handleMoreClose()} >
-          <DialogTitle className={classes.dialogTitle}>{this.props.name}</DialogTitle>
-          <DialogContent className={classes.more}>
+        {/* view students dialog */}
+        <Dialog open={this.state.view} onClose={() => this.handleViewClose()} >
+          <DialogTitle className={classes.dialogTitle}> Student lists </DialogTitle>
+          <DialogContent className={classes.view}>
           <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
-            Instructor:
+            Undergraduate Students:
           </DialogContentText>
           <DialogContentText style={{color:"black"}}>
-            John Cash
+            Roman Traverso<br />
+            Santos Hollie<br />
+            Delsie Sandquist<br />
+            Toya Duque<br />
+            Dudley Richey<br />
+            Theola Mangus<br />
+            Shameka Gorecki<br />
+            <br />
           </DialogContentText>
         
           <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
-            Meeting Time:
+            Graduate Students:
           </DialogContentText>
           <DialogContentText style={{color:"black"}}>
-            Monday Wednesday Friday 10:00 P.M.
-          </DialogContentText>
-
-
-          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
-            Total Length:
-          </DialogContentText>
-          <DialogContentText style={{color:"black"}}>
-            16 Hours
-          </DialogContentText>
-
-
-          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
-            Tuition: 
-          </DialogContentText>
-          <DialogContentText style={{color:"black"}}>
-            $50
-          </DialogContentText>
-          <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
-            Course Description:
-          </DialogContentText>
-          <DialogContentText style={{color:"black"}}>
-            {this.props.intro}
+            Brad Leclaire<br />
+            Anna Cormier<br />
+            German Deberry<br />
+            Daniella Cason<br />
+            Raphael Resendiz<br />
+            Ahmed Greaves<br />
+            Alex Simerly<br />
           </DialogContentText>
 
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={() => this.handleMoreClose()}>
+            <Button color="primary" onClick={() => this.handleViewClose()}>
               OK
           </Button>
           </DialogActions>

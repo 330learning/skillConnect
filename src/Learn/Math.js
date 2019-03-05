@@ -28,7 +28,7 @@ class Math extends React.Component {
 
         return (
             <div className="Math">
-                <NavBar lastPage="Courses" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="Categories" to="/Learn" Icon="arrow_back" />
                 <p id="course-header"> Math Courses </p>
                 <header className="Math-header">
                     <CourseInfoCard name="Calculus" intro={calculus} image={Calculus} />

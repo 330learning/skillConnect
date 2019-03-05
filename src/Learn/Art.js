@@ -31,7 +31,7 @@ class Art extends React.Component {
 
         return (
             <div className="Art">
-                <NavBar lastPage="Courses" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="Categories" to="/Learn" Icon="arrow_back" />
                 <p id="course-header"> Art Courses </p>
                 <header className="Art-header">
                     <CourseInfoCard name="Painting Art" intro={painting} image={paintingArt} />
