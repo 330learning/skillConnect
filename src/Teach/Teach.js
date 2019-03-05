@@ -1,130 +1,47 @@
-import React, { Component } from 'react'
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Select from 'react-select';
-import "./Teach.css";
-import Button from '@material-ui/core/Button';
-import NavBar from "../Components/NavBar"
+import React from "react";
+import "./Teach.css"
+import TeachCard from "../Components/TeachCard";
+import NavBar from "../Components/NavBar";
 
-const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-    dense: {
-        marginTop: 19,
-    },
-    menu: {
-        width: 200,
-    },
-});
+import HTML from "../Images/HTML.jpg";
+import AmericanHistory from "../Images/AmericanHistory.jpg";
+import Calculus from "../Images/Calculus.jpg";
+import paintingArt from "../Images/painting.jpg";
 
-class Teach extends Component {
-    state = {}
 
-    handleChange = (e, { value }) => this.setState({ value })
-
+class Teach extends React.Component {
     render() {
-        var options = [
-            { value: 'Arts', label: 'Arts' },
-            { value: 'Chem', label: 'Chemistry' },
-            { value: 'Computer', label: 'Computer' },
-            { value: 'History', label: 'History' },
-            { value: 'Math', label: 'Math' },
-            { value: 'Others', label: 'Others' }
-        ]
-        var selectorStyle = {
-            control: base => ({
-                ...base,
-                fontSize: "18px",
-            }),
-            menu: base => ({
-                ...base,
-                fontSize: "14px"
-            })
-        }
+        var html = "This course is designed to introduce students to those basic grammatical rules in HTML. " + 
+            "HTML is the standard markup language for creating web pages and web applications.";
 
-        var divStyle = {
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "wrap",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            backgroundColor: "#dfe3ee"
-        }
+        var american = "This course provides a one-year survey of American " +
+            "history from the Colonial Period and the American Revolution to the" +
+            "present day, with an emphasis on the twentieth century.";
 
-        var textStyle = {
-            width: "300px"
-        }
+        var calculus = "This course is designed to introduce students to those most practical calculus method, including " + 
+                "differential calculus, integral calculus, and all other useful theorems.";
 
-        function buttonClick() {
-            alert("You have successfully update you profile!");
-        }
+        var painting = "This course is a basic studio course in the media and techniques of painting.  " +
+            "Activity will emphasize the study of color, structure, creativity and aesthetic values in general." +
+            "present day, with an emphasis on the twentieth century.";
 
-        const { classes } = this.props;
+        
+
+
         return (
-            <div style={divStyle}>
+            <div className="Teach">
                 <NavBar noBack={true} />
-                <div style={{ height: "50px" }}></div>
-                <h1>Preference Filters</h1>
-                <TextField
-                    id="standard-dense"
-                    label="First Name"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Last Name"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="E-mail"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Phone Number"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <TextField
-                    id="standard-dense"
-                    label="Your Location"
-                    className={classNames(classes.textField, classes.dense)}
-                    margin="dense"
-                    style={textStyle}
-                />
-                <br />
-
-                <p id="type-of-user">Field of Interests: </p>
-                <Select className="Selector" options={options} isMulti styles={selectorStyle} />
-                <br />
-                <Button variant="contained" color="primary" id="sign-in" onClick={buttonClick}>
-                    Update
-                </Button>
-                <div style={{ height: "600px" }}></div>
+                <p id="course-header"> Courses You're Teaching </p>
+                <header className="Teach-header">
+                    <TeachCard name="HTML" intro={html} image={HTML} />
+                    <TeachCard name="American History" intro={american} image={AmericanHistory} />
+                    <TeachCard name="Calculus" intro={calculus} image={Calculus} />
+                    <TeachCard name="Painting Art" intro={painting} image={paintingArt} />
+                </header>
             </div>
-        );
+        )
     }
+
+
 }
-
-Teach.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Teach);
+export default Teach;
