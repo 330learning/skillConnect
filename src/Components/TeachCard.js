@@ -19,7 +19,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const styles = {
   card: {
     minWidth: 325,
-    maxWidth: 345,
+    maxWidth: 325,
     margin: 20,
   },
   media: {
@@ -78,7 +78,7 @@ class MediaCard extends React.Component {
 
   render() {
     const { classes } = this.props;
-    if(this.state.confirm) {
+    if (this.state.confirm) {
         return '';
     }
     return (
@@ -114,7 +114,7 @@ class MediaCard extends React.Component {
           <DialogTitle>{"Are you sure you want to delete it?"}</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              They course will be gone for good.
+              The course will be gone for good.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
