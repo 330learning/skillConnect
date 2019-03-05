@@ -11,6 +11,7 @@ import HTML from "../Images/HTML.jpg";
 import AmericanHistory from "../Images/AmericanHistory.jpg";
 import Calculus from "../Images/Calculus.jpg";
 import paintingArt from "../Images/painting.jpg";
+import NewCourse from "../Images/NewCourse.png";
 
 
 const styles = {
@@ -39,7 +40,7 @@ class Teach extends React.Component {
         let list = []
         console.log(this.state.count)
         for (var i = 0; i < this.state.count; i++) {
-            list.push(<TeachCard name="Painting Art" intro={"default intro"} image={paintingArt} />)
+            list.push(<TeachCard name="New Courses" intro={"default intro"} image={NewCourse} />)
         }
         return list
     }
