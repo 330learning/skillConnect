@@ -20,7 +20,7 @@ class Learn extends React.Component {
     return (
       <div className="Learn">
         <NavBar noBack={true} />
-        <p id="course-header"> Explore Courses</p>
+        <p id="course-header"> Explore Categories</p>
         <header className="Learn-header">
 
           <CourseCard image={Art} title="Art" letter="A" to="/Learn/Art"/>
