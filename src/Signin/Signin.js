@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import './Signin.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -36,9 +38,30 @@ const mapDispatchToProps = {
    avatar: require('../Images/janiston.jpg')
  }
 
+
+
+ const styles = {
+  
+  dialog: {
+      minWidth: 500,
+      minHeight: 300,
+  },
+  dialogTitle: {
+      backgroundColor:"#3b5998",
+      '& h2': {color: 'white',}
+  },
+  dialogContent: {
+    marginTop: 30,
+    minWidth: 350,
+    minHeight: 70,
+  },
+};
+
+
+
 class Signin extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       warning1: false,
       warning2: false,
@@ -81,6 +104,7 @@ class Signin extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <div className="Signin">
         <header className="Signin-header">
@@ -120,14 +144,11 @@ class Signin extends Component {
         </header>
 
         {/* username empty warning */}
-        <Dialog
-        open={this.state.warning1}
-        onClose={() => this.handleWarning1Close()}
-        >
-          <DialogTitle>
-            {"Please Check Your Username:"}
+        <Dialog open={this.state.warning1} onClose={() => this.handleWarning1Close()}>
+          <DialogTitle className={classes.dialogTitle}>
+            {"Please Check Your Username!"}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               Username cannot be empty!
             </DialogContentText>
@@ -140,14 +161,11 @@ class Signin extends Component {
         </Dialog>
 
         {/* password empty warning */}
-        <Dialog
-        open={this.state.warning2}
-        onClose={() => this.handleWarning2Close()}
-        >
-          <DialogTitle>
-            {"Please Check Your Password:"}
+        <Dialog open={this.state.warning2} onClose={() => this.handleWarning2Close()} >
+          <DialogTitle className={classes.dialogTitle}>
+            {"Please Check Your Password!"}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               Password cannot be empty!
             </DialogContentText>
@@ -160,14 +178,11 @@ class Signin extends Component {
         </Dialog>
 
         {/* user not found warning */}
-        <Dialog
-        open={this.state.warning3}
-        onClose={() => this.handleWarning3Close()}
-        >
-          <DialogTitle>
+        <Dialog open={this.state.warning3} onClose={() => this.handleWarning3Close()}>
+          <DialogTitle className={classes.dialogTitle}>
             {"User Not Found!"}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               The attempted login request has been denied.
             </DialogContentText>
@@ -184,4 +199,8 @@ class Signin extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Signin);
+Signin.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Signin));

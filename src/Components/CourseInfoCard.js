@@ -27,17 +27,17 @@ const styles = {
   content: {
     height: 180,
   },
-  more: {
-    minHeight:300,
-    minWidth: 300,
-    marginTop:30,
-  },
   dialogTitle: {
     backgroundColor:"#3b5998",
     '& h2': {
       color: 'white',
     }
-  }
+  },
+  dialogContent: {
+    marginTop: 30,
+    minWidth: 350,
+    minHeight: 70,
+  },
 };
 
 class MediaCard extends React.Component {
@@ -105,12 +105,9 @@ class MediaCard extends React.Component {
         </Card>
 
         {/* first dialog */}
-        <Dialog
-          open={this.state.open}
-          onClose={() => this.handleClose()}
-        >
-          <DialogTitle>{"Are you sure you want to enroll?"}</DialogTitle>
-          <DialogContent>
+        <Dialog open={this.state.open} onClose={() => this.handleClose()}>
+          <DialogTitle className={classes.dialogTitle}>{"Are you sure you want to enroll?"}</DialogTitle>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               By enrolling in this course, you agree to terms and conditions of this application.
           </DialogContentText>
@@ -127,8 +124,8 @@ class MediaCard extends React.Component {
 
         {/* second dialog */}
         <Dialog open={this.state.confirm} onClose={() => this.handleConfirmClose()}>
-          <DialogTitle>{"Success"}</DialogTitle>
-          <DialogContent>
+          <DialogTitle className={classes.dialogTitle}>{"Success"}</DialogTitle>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               You've been successfully enrolled in this course.
           </DialogContentText>
@@ -141,9 +138,9 @@ class MediaCard extends React.Component {
         </Dialog>
 
         {/* learn more dialog */}
-        <Dialog  open={this.state.more} onClose={() => this.handleMoreClose()} >
+        <Dialog open={this.state.more} onClose={() => this.handleMoreClose()} >
           <DialogTitle className={classes.dialogTitle}>{this.props.name}</DialogTitle>
-          <DialogContent className={classes.more}>
+          <DialogContent className={classes.dialogContent}>
           <DialogContentText style={{color:"#3b5998", fontWeight:"600"}}>
             Instructor:
           </DialogContentText>

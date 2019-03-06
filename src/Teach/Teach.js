@@ -21,12 +21,21 @@ import NewCourse from "../Images/NewCourse.png";
 
 
 const styles = {
-  card: {
-    minWidth: 325,
-    maxWidth: 325,
-    minHeight: 397,
-    margin: 20,
-  },
+    card: {
+        minWidth: 325,
+        maxWidth: 325,
+        minHeight: 397,
+        margin: 20,
+    },
+    dialogTitle: {
+        backgroundColor:"#3b5998",
+        '& h2': {color: 'white',}
+    },
+    dialogContent: {
+        marginTop: 30,
+        minWidth: 350,
+        minHeight: 70,
+    }
 };
 
 
@@ -122,12 +131,9 @@ class Teach extends React.Component {
                     </header>
 
                     {/* Fill form to add new course */}
-                    <Dialog
-                    open={this.state.add}
-                    onClose={() => this.handleAddClose()}
-                    >
-                        <DialogTitle>{"Add course"}</DialogTitle>
-                        <DialogContent>
+                    <Dialog open={this.state.add} onClose={() => this.handleAddClose()}>
+                        <DialogTitle className={classes.dialogTitle}>{"Add course"}</DialogTitle>
+                        <DialogContent className={classes.dialogContent}>
                             <DialogContentText>
                                 To add a new course, please fill in the form below.
                             </DialogContentText>
@@ -158,14 +164,11 @@ class Teach extends React.Component {
 
                     
                     {/* Course Name empty warning */}
-                    <Dialog
-                    open={this.state.warning1}
-                    onClose={() => this.handleWarning1Close()}
-                    >
-                    <DialogTitle>
-                        {"Please Check the Course Name:"}
+                    <Dialog open={this.state.warning1} onClose={() => this.handleWarning1Close()}>
+                    <DialogTitle className={classes.dialogTitle}>
+                        {"Please Check the Course Name"}
                     </DialogTitle>
-                    <DialogContent>
+                    <DialogContent className={classes.dialogContent}>
                         <DialogContentText>
                         Course name cannot be empty!
                         </DialogContentText>
@@ -178,14 +181,11 @@ class Teach extends React.Component {
                     </Dialog>
 
                     {/* Course Description empty warning */}
-                    <Dialog
-                    open={this.state.warning2}
-                    onClose={() => this.handleWarning2Close()}
-                    >
-                    <DialogTitle>
-                        {"Please Check the Course description:"}
+                    <Dialog open={this.state.warning2} onClose={() => this.handleWarning2Close()}>
+                    <DialogTitle className={classes.dialogTitle}>
+                        {"Please Check the Course description"}
                     </DialogTitle>
-                    <DialogContent>
+                    <DialogContent className={classes.dialogContent}>
                         <DialogContentText>
                         Course description cannot be empty!
                         </DialogContentText>
