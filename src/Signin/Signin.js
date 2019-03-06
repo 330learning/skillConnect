@@ -8,6 +8,33 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {NavLink} from "react-router-dom";
+import {login} from '../Actions/Actions'
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = {
+  login,
+ };
+
+ const bpitt = {
+   first : 'Brad',
+   last : 'Pitt',
+   age : 55,
+   gender : 'Male',
+   email : 'i-dont-know@gmail.com',
+   username : 'bpitt',
+   avatar: require('../Images/bradpitt.png')
+ }
+
+ const janiston = {
+   first : 'Jennifer',
+   last : 'Aniston',
+   age : 50,
+   gender : 'Femail',
+   email : 'i-hate-brad-pitt@gmail.com',
+   username: 'janiston',
+   avatar: require('../Images/janiston.jpg')
+ }
 
 class Signin extends Component {
   constructor() {
@@ -15,6 +42,7 @@ class Signin extends Component {
     this.state = {
       warning1: false,
       warning2: false,
+      warning3: false,
     }
   }
 
@@ -26,9 +54,17 @@ class Signin extends Component {
     }
     else if (password === "") {
       this.setState({warning2: true});
+    } else if (username === "bpitt") {
+      //change redux state
+      this.props.login(bpitt)
+      this.props.history.push('Learn')
+    } else if (username === "janiston") {
+      //change redux state
+      this.props.login(janiston)
+      this.props.history.push('Learn')
     }
     else {
-      this.props.history.push('Learn')
+      this.setState({warning3: true});
     }
   }
 
@@ -38,6 +74,10 @@ class Signin extends Component {
 
   handleWarning2Close() {
     this.setState({warning2: false});
+  }
+
+  handleWarning3Close() {
+    this.setState({warning3: false});
   }
 
   render() {
@@ -118,10 +158,30 @@ class Signin extends Component {
             </Button>
           </DialogActions>
         </Dialog>
+
+        {/* user not found warning */}
+        <Dialog
+        open={this.state.warning3}
+        onClose={() => this.handleWarning3Close()}
+        >
+          <DialogTitle>
+            {"User Not Found!"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              The attempted login request has been denied.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => this.handleWarning3Close()} color="primary">
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
 
     );
   }
 }
 
-export default Signin;
+export default connect(null, mapDispatchToProps)(Signin);

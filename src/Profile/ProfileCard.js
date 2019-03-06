@@ -25,7 +25,7 @@ function createData(name, content) {
   return { id, name, content };
 }
 
-const rows = [
+var rows = [
   createData("First Name", "Old"),
   createData("Last Name", "Man"),
   createData("Age", 85),
@@ -33,8 +33,24 @@ const rows = [
   createData("Email", "master@gmail.com")
 ];
 
+
+
+
+
 function SimpleTable(props) {
   const { classes } = props;
+  console.log("profile card props",props)
+  if (props.userProfile.username !=='') {
+    id = 0
+    rows = [
+      createData("First Name", props.userProfile.first),
+      createData("Last Name", props.userProfile.last),
+      createData("Age", props.userProfile.age),
+      createData("Gender", props.userProfile.gender),
+      createData("Email", props.userProfile.email),
+    ]
+  }
+
 
   return (
     <Paper className={classes.root}>

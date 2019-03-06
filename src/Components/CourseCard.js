@@ -97,7 +97,7 @@ class CourseCard extends React.Component {
 
         <Collapse in={this.state.expand} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>Click to Learn more about {this.props.title}</Typography>
         </CardContent>
         </Collapse>
       </Card>
