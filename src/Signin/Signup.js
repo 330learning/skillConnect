@@ -108,6 +108,9 @@ class Signup extends Component {
                         type="search"
                         margin="normal"
                         id="username"
+                        style={{
+                            width: "300px"
+                          }}
                     />
                     <TextField
                         className = "Standard-input"
@@ -116,6 +119,9 @@ class Signup extends Component {
                         autoComplete="current-password"
                         margin="normal"
                         id="password1"
+                        style={{
+                            width: "300px"
+                          }}
                     />
                     <TextField
                         className = "Standard-input"
@@ -124,6 +130,9 @@ class Signup extends Component {
                         autoComplete="current-password"
                         margin="normal"
                         id="password2"
+                        style={{
+                            width: "300px"
+                          }}
                     />
 
                     <p id="type-of-user">Field of Interests</p>
