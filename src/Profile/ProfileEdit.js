@@ -49,7 +49,7 @@ class EditProfile extends Component {
     };
 
     buttonClick = () => {
-        alert("You have successfully update you profile!");
+        alert("You have successfully update you profile!"); 
     }
 
     render() {
@@ -111,6 +111,7 @@ class EditProfile extends Component {
                     id="standard-with-placeholder"
                     label="Your Age:"
                     placeholder={age}
+                    type="number"
                     className = "Standard-input"
                     margin="normal"
                     onChange={this.handleChange}
@@ -143,11 +144,10 @@ class EditProfile extends Component {
                 <br />
                 <br />
 
-                <Link to="/Profile">
-                    <Button variant="contained" color="primary" className={classes.button}>
-                        OK
-                    </Button>
-                </Link>
+                
+                <Button variant="contained" color="primary" className={classes.button} onClick={this.buttonClick}>
+                    OK
+                </Button>
                 <div style={{ height: "500px" }}></div>
 
             </div>
