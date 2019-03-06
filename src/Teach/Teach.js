@@ -121,10 +121,10 @@ class Teach extends React.Component {
 
                     </header>
 
-
+                    {/* Fill form to add new course */}
                     <Dialog
-                        open={this.state.add}
-                        onClose={() => this.handleAddClose()}
+                    open={this.state.add}
+                    onClose={() => this.handleAddClose()}
                     >
                         <DialogTitle>{"Add course"}</DialogTitle>
                         <DialogContent>
@@ -157,7 +157,7 @@ class Teach extends React.Component {
                     </Dialog>
 
                     
-                    {/* username empty warning */}
+                    {/* Course Name empty warning */}
                     <Dialog
                     open={this.state.warning1}
                     onClose={() => this.handleWarning1Close()}
@@ -177,7 +177,7 @@ class Teach extends React.Component {
                     </DialogActions>
                     </Dialog>
 
-                    {/* password empty warning */}
+                    {/* Course Description empty warning */}
                     <Dialog
                     open={this.state.warning2}
                     onClose={() => this.handleWarning2Close()}
