@@ -31,7 +31,7 @@ class Literature extends React.Component {
 
         return (
             <div className="Literature">
-                <NavBar lastPage="Courses" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="Categories" to="/Learn" Icon="arrow_back" />
                 <p id="course-header"> Literature Courses </p>
                 <header className="Literature-header">
                     <CourseInfoCard name="Fiction Literature" intro={fiction} image={fictionLiterature} />

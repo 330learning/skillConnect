@@ -77,7 +77,7 @@ class Profile extends Component {
                 <NavBar noBack={true} />
                 <div style={{ height: "50px" }}></div>
                 <h1>User Profile</h1>
-                <img src={require("../Images/1.png")} />
+                <img src={require("../Images/1.png")} alt="random" />
                 <ProfileCard></ProfileCard>
                 <br />
                 <br />
