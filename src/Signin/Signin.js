@@ -115,6 +115,9 @@ class Signin extends Component {
             type="search"
             margin="normal"
             id="username"
+            style={{
+              maxWidth: "80%"
+            }}
           />
           <div className="Password">
           <TextField
@@ -124,6 +127,9 @@ class Signin extends Component {
             autoComplete="current-password"
             margin="normal"
             id="password"
+            style={{
+              maxWidth: "79%"
+            }}
           />
           {/* <p>Forgot Password</p> */}
           </div>
