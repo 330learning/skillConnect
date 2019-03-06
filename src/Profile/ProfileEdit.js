@@ -38,12 +38,12 @@ class EditProfile extends Component {
     state = {
         firstName: "Old",
         lastName: "Master",
-        age: 65,
+        age: "65",
         email: "naive@gmail.com",
         gender: "Male"
     }
 
-    handleChange = (e, { value }) => this.setState({ value })
+    handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
     handleSelectChange = event => {
         this.setState({ [event.target.name]: event.target.value });
