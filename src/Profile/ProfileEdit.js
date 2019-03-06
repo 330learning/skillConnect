@@ -37,7 +37,7 @@ class EditProfile extends Component {
     state = {
         firstName: "Old",
         lastName: "Master",
-        age: "65",
+        age: 0,
         email: "naive@gmail.com",
         gender: "Male"
     }
@@ -110,7 +110,7 @@ class EditProfile extends Component {
                 <TextField
                     id="standard-with-placeholder"
                     label="Your Age:"
-                    placeholder={age}
+                    placeholder="Only numbers allowed."
                     type="number"
                     className = "Standard-input"
                     margin="normal"
