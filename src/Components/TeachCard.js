@@ -102,7 +102,7 @@ class MediaCard extends React.Component {
             </Button>
             <Button size="small" color="primary" onClick={() => this.handleView()}>
               View Students
-        </Button>
+            </Button>
           </CardActions>
         </Card>
 

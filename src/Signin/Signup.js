@@ -2,51 +2,57 @@ import React, { Component } from 'react';
 import './Signup.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import {NavLink} from "react-router-dom";
-import  Select from 'react-select';
+import Select from 'react-select';
 
 
 
 class Signup extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      username: "",
-      password: "",
-      password2: ""
+    constructor() {
+        super()
+        this.state = {
+            warning1: false,
+            warning2: false,
+            warning3: false,
+        }
     }
-    this.updateUsername = this.updateUsername.bind(this)
-    this.updatePassword = this.updatePassword.bind(this)
-    this.updatePassword2 = this.updatePassword2.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-  }
 
-  updateUsername(evt) {
-    this.setState({ username: evt.target.value})
-  }
-
-  updatePassword(evt) {
-    this.setState({ password: evt.target.value})
-  }
-
-  updatePassword2(evt) {
-    this.setState({ password2: evt.target.value})
-  }
-
-  handleClick() {
-    if (this.state.username === "") {
-      alert("Please enter username!")
+    handleSignup() {
+        let username = document.getElementById("username").value;
+        let password1 = document.getElementById("password1").value;
+        let password2 = document.getElementById("password2").value;
+        if (username === "") {
+            this.setState({warning1: true});
+        }
+        else if (password1 === "" || password2 === "") {
+            this.setState({warning2: true});
+        }
+        else if (password1 !== password2) {
+            this.setState({warning3: true});
+        }
+        else {
+            this.props.history.goBack();
+        }
     }
-    else if (this.state.password === "") {
-      alert("Please enter password!")
-    } else if (this.state.password !== this.state.password2) {
-      alert("Passwords are not the same!")
+
+    handleWarning1Close() {
+        this.setState({warning1: false});
     }
-    else {
-      this.props.history.goBack()
+
+    handleWarning2Close() {
+        this.setState({warning2: false});
     }
-  }
+
+    handleWarning3Close() {
+        this.setState({warning3: false});
+    }
+
 
     render() {
         //options and styles for the selector
@@ -71,50 +77,112 @@ class Signup extends Component {
         }
 
         return(
-        <header className="Signup-header">
-        
-        <p> SIGN UP</p>
-          <TextField
-            className = "Standard-input"
-            label="Username:"
-            type="search"
-            margin="normal"
-            value={this.state.username}
-            onChange={this.updateUsername}
-          />
-          <TextField
-            className = "Standard-input"
-            label="Password:"
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-            value={this.state.password}
-            onChange={this.updatePassword}
-          />
-          <TextField
-            className = "Standard-input"
-            label="Confirm Password:"
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-            value={this.state.password2}
-            onChange={this.updatePassword2}
-          />
+            <div className="Signup">
+                <header className="Signup-header">
+                
+                    <p> SIGN UP</p>
+                    <TextField
+                        className = "Standard-input"
+                        label="Username:"
+                        type="search"
+                        margin="normal"
+                        id="username"
+                    />
+                    <TextField
+                        className = "Standard-input"
+                        label="Password:"
+                        type="password"
+                        autoComplete="current-password"
+                        margin="normal"
+                        id="password1"
+                    />
+                    <TextField
+                        className = "Standard-input"
+                        label="Confirm Password:"
+                        type="password"
+                        autoComplete="current-password"
+                        margin="normal"
+                        id="password2"
+                    />
 
-        <p id="type-of-user">Field of Interests</p>
-          <Select className = "Selector" options = {options} isMulti styles={selectorStyle}/>
-        
-          <Button variant="contained" color="primary" id="submit" onClick={this.handleClick}>
-            SUBMIT
-          </Button>
+                    <p id="type-of-user">Field of Interests</p>
+                    <Select className = "Selector" options = {options} isMulti styles={selectorStyle}/>
+                    
+                    <Button variant="contained" color="primary" id="submit" onClick={() => this.handleSignup()}>
+                        Submit
+                    </Button>
 
-          <NavLink to="/" style={{textDecoration:'none'}} >
-          <Button variant="contained" color="secondary" id="cancel">
-            CANCEL
-          </Button>
-          </NavLink>
+                    <NavLink to="/" style={{textDecoration:'none'}} >
+                    <Button variant="contained" color="secondary" id="cancel">
+                        Cancel
+                    </Button>
+                    </NavLink>
 
-        </header>
+                </header>
+
+
+                {/* username empty warning */}
+                <Dialog
+                open={this.state.warning1}
+                onClose={() => this.handleWarning1Close()}
+                >
+                <DialogTitle>
+                    {"Please Check Your Username:"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                    Username cannot be empty!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning1Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
+
+                {/* password empty warning */}
+                <Dialog
+                open={this.state.warning2}
+                onClose={() => this.handleWarning2Close()}
+                >
+                <DialogTitle>
+                    {"Please Check Your Password:"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                    Password cannot be empty!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning2Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
+
+                {/* password not same warning */}
+                <Dialog
+                open={this.state.warning3}
+                onClose={() => this.handleWarning3Close()}
+                >
+                <DialogTitle>
+                    {"Please Check Your Password:"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                    Passwords are not the same!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning3Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
+
+
+            </div>
 
         );
     }
