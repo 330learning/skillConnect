@@ -7,10 +7,12 @@ import Learn from './Learn/Learn';
 import History from './Learn/History';
 import Teach from './Teach/Teach';
 import Art from './Learn/Art'
+import Design from './Learn/Design'
 import Literature from './Learn/Literature'
 import Math from './Learn/Math';
 import Programming from './Learn/Programming';
 import Speech from './Learn/Speech';
+import Sports from './Learn/Sports';
 import Profile from './Profile/Profile';
 import EditProfile from './Profile/ProfileEdit';
 import "./App.css";
@@ -35,6 +37,8 @@ class App extends Component {
                     <Route path = '/Learn/Speech' component={Speech}/>
                     <Route path= '/Learn/Art' component={Art} />
                     <Route path= '/Learn/Literature' component={Literature} />
+                    <Route path= '/Learn/Design' component={Design} />
+                    <Route path= '/Learn/Sports' component={Sports} />
                     <Route path = '/Profile' component={Profile}/>
                     <Route path='/Teach' component={Teach} />
                     <Route path= '/EditProfile' component={EditProfile} />
