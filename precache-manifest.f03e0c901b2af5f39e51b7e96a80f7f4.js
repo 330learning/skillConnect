@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/EuropeanHistory.c02af79a.jpg"
   },
   {
-    "revision": "35c78b6afe46044d66d1",
-    "url": "/skillConnect/static/css/main.056da1ac.chunk.css"
+    "revision": "e721f126136bbbd50726",
+    "url": "/skillConnect/static/css/main.8f65c44e.chunk.css"
   },
   {
     "revision": "f24ac37651b1275d2d9b",
     "url": "/skillConnect/static/js/runtime~main.f24ac376.js"
   },
   {
-    "revision": "7a53adffb0508d94b89e",
-    "url": "/skillConnect/static/js/2.7a53adff.chunk.js"
+    "revision": "f13e102fd32a7747b54b",
+    "url": "/skillConnect/static/js/2.f13e102f.chunk.js"
   },
   {
     "revision": "311ccce20e13c2f4e89d81f8142d9d53",
@@ -80,8 +80,12 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/AsianHistory.dde7400b.jpg"
   },
   {
-    "revision": "35c78b6afe46044d66d1",
-    "url": "/skillConnect/static/js/main.35c78b6a.chunk.js"
+    "revision": "e721f126136bbbd50726",
+    "url": "/skillConnect/static/js/main.e721f126.chunk.js"
+  },
+  {
+    "revision": "6975b12322d7bc334172e54f43e07241",
+    "url": "/skillConnect/static/media/NewCourse.6975b123.png"
   },
   {
     "revision": "3888b05d81b54067a7f75217b55f2c04",
@@ -153,14 +157,10 @@ self.__precacheManifest = [
   },
   {
     "revision": "3b37d8fba1d337911540baad04041f74",
-    "url": "/skillConnect/static/media/bradpitt.3b37d8fb.png"
+    "url": "/skillConnect/static/media/1.3b37d8fb.png"
   },
   {
-    "revision": "ec5d259ec629e5872aade3dcdba7b535",
-    "url": "/skillConnect/static/media/janiston.ec5d259e.jpg"
-  },
-  {
-    "revision": "a92fc127b4c01f4fb03287853567904f",
+    "revision": "62efaa7f32e5368ab4d882665eb66766",
     "url": "/skillConnect/index.html"
   }
 ];
