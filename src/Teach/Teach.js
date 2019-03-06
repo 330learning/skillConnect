@@ -1,16 +1,93 @@
 import React from "react";
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import "./Teach.css"
 import TeachCard from "../Components/TeachCard";
 import NavBar from "../Components/NavBar";
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import HTML from "../Images/HTML.jpg";
 import AmericanHistory from "../Images/AmericanHistory.jpg";
 import Calculus from "../Images/Calculus.jpg";
 import paintingArt from "../Images/painting.jpg";
+import NewCourse from "../Images/NewCourse.png";
+
+
+const styles = {
+  card: {
+    minWidth: 325,
+    maxWidth: 325,
+    minHeight: 397,
+    margin: 20,
+  },
+};
 
 
 class Teach extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state={
+            add: false,
+            warning1: false,
+            warning2: false,
+            count: 0,
+            nameList: [],
+            descList: [],
+        }
+    }
+
+    handleAdd() {
+        this.setState({add: true});
+    }
+
+    handleAddClose() {
+        this.setState({add: false});
+    }
+
+    handleAddCloseAndUpdate() {
+        let name = document.getElementById("name").value;
+        let description = document.getElementById("description").value;
+        if (name === "") {
+            this.setState({warning1: true});
+        } 
+        else if (description === "") {
+            this.setState({warning2: true});
+        }
+        else {
+            this.setState({add: false});
+            this.setState({count: (this.state.count + 1)});
+            this.setState({nameList: this.state.nameList.concat([name])});
+            this.setState({descList: this.state.descList.concat([description])});
+        }
+    }
+    
+    handleWarning1Close() {
+        this.setState({warning1: false});
+    }
+
+    handleWarning2Close() {
+        this.setState({warning2: false});
+    }
+
+
+    showNewCards() {
+        let list = [];
+        for (var i = 0; i < this.state.count; i++) {
+            list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={NewCourse} />);
+        }
+        return list;
+    }
+    
+
     render() {
+        const { classes } = this.props;
         var html = "This course is designed to introduce students to those basic grammatical rules in HTML. " + 
             "HTML is the standard markup language for creating web pages and web applications.";
 
@@ -27,21 +104,108 @@ class Teach extends React.Component {
 
         
 
+        if (this.state.count >= 0) {
+            return (
+                <div className="Teach">
+                    <NavBar noBack={true} />
+                    <p id="course-header"> Courses You're Teaching </p>
+                    <header className="Teach-header">
+                        <TeachCard name="HTML" intro={html} image={HTML} />
+                        <TeachCard name="American History" intro={american} image={AmericanHistory} />
+                        <TeachCard name="Calculus" intro={calculus} image={Calculus} />
+                        <TeachCard name="Painting Art" intro={painting} image={paintingArt} />
+                        {this.showNewCards()}
+                        <Button variant="contained" color="primary" className={classes.card} onClick={() => this.handleAdd()}>
+                            <h1><AddIcon /></h1>
+                        </Button>
 
-        return (
-            <div className="Teach">
-                <NavBar noBack={true} />
-                <p id="course-header"> Courses You're Teaching </p>
-                <header className="Teach-header">
-                    <TeachCard name="HTML" intro={html} image={HTML} />
-                    <TeachCard name="American History" intro={american} image={AmericanHistory} />
-                    <TeachCard name="Calculus" intro={calculus} image={Calculus} />
-                    <TeachCard name="Painting Art" intro={painting} image={paintingArt} />
-                </header>
-            </div>
-        )
+                    </header>
+
+
+                    <Dialog
+                        open={this.state.add}
+                        onClose={() => this.handleAddClose()}
+                    >
+                        <DialogTitle>{"Add course"}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                To add a new course, please fill in the form below.
+                            </DialogContentText>
+                            <TextField
+                                id="name"
+                                label="Course Name:"
+                                margin="normal"
+                                fullWidth
+                            />
+                            <TextField
+                                id="description"
+                                label="Course Description:"
+                                margin="normal"
+                                multiline
+                                rows="4"
+                                fullWidth
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button color="primary" onClick={() => this.handleAddCloseAndUpdate()}>
+                                Submit
+                            </Button>
+                            <Button color="primary" onClick={() => this.handleAddClose()}>
+                                Cancel
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
+                    
+                    {/* username empty warning */}
+                    <Dialog
+                    open={this.state.warning1}
+                    onClose={() => this.handleWarning1Close()}
+                    >
+                    <DialogTitle>
+                        {"Please Check the Course Name:"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                        Course name cannot be empty!
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.handleWarning1Close()} color="primary">
+                        OK
+                        </Button>
+                    </DialogActions>
+                    </Dialog>
+
+                    {/* password empty warning */}
+                    <Dialog
+                    open={this.state.warning2}
+                    onClose={() => this.handleWarning2Close()}
+                    >
+                    <DialogTitle>
+                        {"Please Check the Course description:"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                        Course description cannot be empty!
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.handleWarning2Close()} color="primary">
+                        OK
+                        </Button>
+                    </DialogActions>
+                    </Dialog>
+
+
+                </div>
+            );
+        }
     }
-
-
 }
-export default Teach;
+
+Teach.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Teach);

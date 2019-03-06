@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './Signin.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import {NavLink} from "react-router-dom";
 import {login} from '../Actions/Actions'
 import { connect } from 'react-redux';
@@ -35,55 +40,57 @@ class Signin extends Component {
   constructor() {
     super()
     this.state = {
-      username: "",
-      password: ""
+      warning1: false,
+      warning2: false,
+      warning3: false,
     }
-    this.updateUsername = this.updateUsername.bind(this)
-    this.updatePassword = this.updatePassword.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  updateUsername(evt) {
-    this.setState({ username: evt.target.value})
-  }
-
-  updatePassword(evt) {
-    this.setState({ password: evt.target.value})
-  }
-
-  handleClick() {
-    if (this.state.username === "") {
-      alert("Please enter username!")
+  handleSignin() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    if (username === "") {
+      this.setState({warning1: true});
     }
-    else if (this.state.password === "") {
-      alert("Please enter password!")
-    } else if (this.state.username === "bpitt") {
+    else if (password === "") {
+      this.setState({warning2: true});
+    } else if (username === "bpitt") {
       //change redux state
       this.props.login(bpitt)
       this.props.history.push('Learn')
-
-    } else if (this.state.username === "janiston") {
+    } else if (username === "janiston") {
       //change redux state
       this.props.login(janiston)
       this.props.history.push('Learn')
     }
     else {
-      alert("User Not Found!")
+      this.setState({warning3: true});
     }
+  }
+
+  handleWarning1Close() {
+    this.setState({warning1: false});
+  }
+
+  handleWarning2Close() {
+    this.setState({warning2: false});
+  }
+
+  handleWarning3Close() {
+    this.setState({warning3: false});
   }
 
   render() {
     return (
       <div className="Signin">
         <header className="Signin-header">
-        <p> SIGN IN</p>
+        <p> SIGN IN </p>
           <TextField
             className = "Standard-input"
             label="Username:"
             type="search"
             margin="normal"
-            value={this.state.username}
-            onChange={this.updateUsername}
+            id="username"
           />
           <div className="Password">
           <TextField
@@ -92,12 +99,11 @@ class Signin extends Component {
             type="password"
             autoComplete="current-password"
             margin="normal"
-            value={this.state.password}
-            onChange={this.updatePassword}
+            id="password"
           />
           {/* <p>Forgot Password</p> */}
           </div>
-            <Button variant="contained" color="primary" id="sign-in" onClick={this.handleClick}>
+            <Button variant="contained" color="primary" id="sign-in" onClick={() => this.handleSignin()}>
               Sign in
             </Button>
           <div id="sign-up-div">
@@ -113,6 +119,65 @@ class Signin extends Component {
           </div>
         </header>
 
+        {/* username empty warning */}
+        <Dialog
+        open={this.state.warning1}
+        onClose={() => this.handleWarning1Close()}
+        >
+          <DialogTitle>
+            {"Please Check Your Username:"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Username cannot be empty!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => this.handleWarning1Close()} color="primary">
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        {/* password empty warning */}
+        <Dialog
+        open={this.state.warning2}
+        onClose={() => this.handleWarning2Close()}
+        >
+          <DialogTitle>
+            {"Please Check Your Password:"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Password cannot be empty!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => this.handleWarning2Close()} color="primary">
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        {/* user not found warning */}
+        <Dialog
+        open={this.state.warning3}
+        onClose={() => this.handleWarning3Close()}
+        >
+          <DialogTitle>
+            {"User Not Found!"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              The attempted login request has been denied.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => this.handleWarning3Close()} color="primary">
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
 
     );
