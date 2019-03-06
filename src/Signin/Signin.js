@@ -120,7 +120,7 @@ class Signin extends Component {
             margin="normal"
             id="username"
             style={{
-              maxWidth: "80%"
+              width: "300px"
             }}
           />
           <div className="Password">
@@ -132,7 +132,7 @@ class Signin extends Component {
             margin="normal"
             id="password"
             style={{
-              maxWidth: "79%"
+              width: "300px"
             }}
           />
           {/* <p>Forgot Password</p> */}
