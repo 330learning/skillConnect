@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/EuropeanHistory.c02af79a.jpg"
   },
   {
-    "revision": "94aae924f3c68984b7c1",
+    "revision": "b53e2b6e609daff9cc37",
     "url": "/skillConnect/static/css/main.8f65c44e.chunk.css"
   },
   {
@@ -80,8 +80,8 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/AsianHistory.dde7400b.jpg"
   },
   {
-    "revision": "94aae924f3c68984b7c1",
-    "url": "/skillConnect/static/js/main.94aae924.chunk.js"
+    "revision": "b53e2b6e609daff9cc37",
+    "url": "/skillConnect/static/js/main.b53e2b6e.chunk.js"
   },
   {
     "revision": "6975b12322d7bc334172e54f43e07241",
@@ -160,7 +160,7 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/1.3b37d8fb.png"
   },
   {
-    "revision": "f0265194f6a890611c393686fff8dd5c",
+    "revision": "64a5bd85250ab2c4c4745ace800c0678",
     "url": "/skillConnect/index.html"
   }
 ];
