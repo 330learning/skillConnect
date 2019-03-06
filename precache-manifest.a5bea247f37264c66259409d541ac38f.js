@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "c02af79a02c0c4d69aac74e5da5ce663",
-    "url": "/skillConnect/static/media/EuropeanHistory.c02af79a.jpg"
+    "revision": "cc67a055f6d3effc7520466b0ede050b",
+    "url": "/skillConnect/static/media/fashion.cc67a055.jpeg"
   },
   {
-    "revision": "b53e2b6e609daff9cc37",
-    "url": "/skillConnect/static/css/main.8f65c44e.chunk.css"
+    "revision": "9ba3720efe066ea7bbaa",
+    "url": "/skillConnect/static/css/main.46d1c32e.chunk.css"
   },
   {
     "revision": "f24ac37651b1275d2d9b",
     "url": "/skillConnect/static/js/runtime~main.f24ac376.js"
   },
   {
-    "revision": "f13e102fd32a7747b54b",
-    "url": "/skillConnect/static/js/2.f13e102f.chunk.js"
+    "revision": "0f2071fc1035939b07fe",
+    "url": "/skillConnect/static/js/2.0f2071fc.chunk.js"
   },
   {
     "revision": "311ccce20e13c2f4e89d81f8142d9d53",
@@ -56,20 +56,12 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/Literature.eadde6f5.jpg"
   },
   {
-    "revision": "8f067cb8ea1f3b12554cd76efdae49e5",
-    "url": "/skillConnect/static/media/music.8f067cb8.jpg"
-  },
-  {
     "revision": "cbce69c643faf403fddef148f067c4f1",
     "url": "/skillConnect/static/media/sports.cbce69c6.jpg"
   },
   {
     "revision": "55c7fd58042bdebeedcaaf0cef79422a",
     "url": "/skillConnect/static/media/design.55c7fd58.jpg"
-  },
-  {
-    "revision": "59bcff57eac3bd153680aa8717050536",
-    "url": "/skillConnect/static/media/language.59bcff57.jpg"
   },
   {
     "revision": "a02516aba7f05b76071dbea53a779630",
@@ -80,8 +72,8 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/AsianHistory.dde7400b.jpg"
   },
   {
-    "revision": "b53e2b6e609daff9cc37",
-    "url": "/skillConnect/static/js/main.b53e2b6e.chunk.js"
+    "revision": "c02af79a02c0c4d69aac74e5da5ce663",
+    "url": "/skillConnect/static/media/EuropeanHistory.c02af79a.jpg"
   },
   {
     "revision": "6975b12322d7bc334172e54f43e07241",
@@ -98,6 +90,22 @@ self.__precacheManifest = [
   {
     "revision": "ed086c67f7d959d4ea733576e3fd70f8",
     "url": "/skillConnect/static/media/dance.ed086c67.jpg"
+  },
+  {
+    "revision": "30759f994af1b5a1390ccd60fb190538",
+    "url": "/skillConnect/static/media/Icon.30759f99.jpg"
+  },
+  {
+    "revision": "b998dab9b489b768d01180a45b4e4c0f",
+    "url": "/skillConnect/static/media/animation.b998dab9.jpg"
+  },
+  {
+    "revision": "9ba3720efe066ea7bbaa",
+    "url": "/skillConnect/static/js/main.9ba3720e.chunk.js"
+  },
+  {
+    "revision": "ef196c37a7e3dedc445da09161117f68",
+    "url": "/skillConnect/static/media/jewelry.ef196c37.jpg"
   },
   {
     "revision": "cf3b408fa09e9c10f278370c2aa927ef",
@@ -156,11 +164,39 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/SalesPitch.b4460f65.jpg"
   },
   {
-    "revision": "3b37d8fba1d337911540baad04041f74",
-    "url": "/skillConnect/static/media/1.3b37d8fb.png"
+    "revision": "3fb44e2882042b85055d6b9fe0080647",
+    "url": "/skillConnect/static/media/Basketball.3fb44e28.jpg"
   },
   {
-    "revision": "64a5bd85250ab2c4c4745ace800c0678",
+    "revision": "47bab3dd79c83db3384ad1f1a2b72299",
+    "url": "/skillConnect/static/media/Soccer.47bab3dd.jpg"
+  },
+  {
+    "revision": "fa8b3c1e5e865cd7442f0dd8606f5e6a",
+    "url": "/skillConnect/static/media/Volleyball.fa8b3c1e.jpg"
+  },
+  {
+    "revision": "d8c0b630f98d58a81e95e8bbe5c9843f",
+    "url": "/skillConnect/static/media/Swimming.d8c0b630.jpg"
+  },
+  {
+    "revision": "3b37d8fba1d337911540baad04041f74",
+    "url": "/skillConnect/static/media/bradpitt.3b37d8fb.png"
+  },
+  {
+    "revision": "ec5d259ec629e5872aade3dcdba7b535",
+    "url": "/skillConnect/static/media/janiston.ec5d259e.jpg"
+  },
+  {
+    "revision": "8f067cb8ea1f3b12554cd76efdae49e5",
+    "url": "/skillConnect/static/media/music.8f067cb8.jpg"
+  },
+  {
+    "revision": "59bcff57eac3bd153680aa8717050536",
+    "url": "/skillConnect/static/media/language.59bcff57.jpg"
+  },
+  {
+    "revision": "bb2c6051cd7b9c1a22fa82b8f7fc278d",
     "url": "/skillConnect/index.html"
   }
 ];
