@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import './Signup.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -11,11 +13,25 @@ import {NavLink} from "react-router-dom";
 import Select from 'react-select';
 
 
+const styles = {
+    dialog: {
+        minWidth: 500,
+        minHeight: 300,
+    },
+    dialogTitle: {
+        backgroundColor:"#3b5998",
+        '& h2': {color: 'white',}
+    },
+    dialogContent: {
+      marginTop: 30,
+      minWidth: 350,
+      minHeight: 70,
+    },
+};
 
 class Signup extends Component {
-
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             warning1: false,
             warning2: false,
@@ -55,6 +71,7 @@ class Signup extends Component {
 
 
     render() {
+        const { classes } = this.props;
         //options and styles for the selector
         var options = [
             {value: 'Arts', label:'Arts'},
@@ -122,14 +139,11 @@ class Signup extends Component {
 
 
                 {/* username empty warning */}
-                <Dialog
-                open={this.state.warning1}
-                onClose={() => this.handleWarning1Close()}
-                >
-                <DialogTitle>
-                    {"Please Check Your Username:"}
+                <Dialog open={this.state.warning1} onClose={() => this.handleWarning1Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your Username!"}
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent className={classes.dialogContent}>
                     <DialogContentText>
                     Username cannot be empty!
                     </DialogContentText>
@@ -142,14 +156,11 @@ class Signup extends Component {
                 </Dialog>
 
                 {/* password empty warning */}
-                <Dialog
-                open={this.state.warning2}
-                onClose={() => this.handleWarning2Close()}
-                >
-                <DialogTitle>
-                    {"Please Check Your Password:"}
+                <Dialog open={this.state.warning2} onClose={() => this.handleWarning2Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your Password!"}
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent className={classes.dialogContent}>
                     <DialogContentText>
                     Password cannot be empty!
                     </DialogContentText>
@@ -162,14 +173,11 @@ class Signup extends Component {
                 </Dialog>
 
                 {/* password not same warning */}
-                <Dialog
-                open={this.state.warning3}
-                onClose={() => this.handleWarning3Close()}
-                >
-                <DialogTitle>
-                    {"Please Check Your Password:"}
+                <Dialog open={this.state.warning3} onClose={() => this.handleWarning3Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your Passwords!"}
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent className={classes.dialogContent}>
                     <DialogContentText>
                     Passwords are not the same!
                     </DialogContentText>
@@ -186,7 +194,10 @@ class Signup extends Component {
 
         );
     }
-
 }
 
-export default Signup;
+Signup.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Signup);
