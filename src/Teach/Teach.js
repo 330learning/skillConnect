@@ -34,8 +34,12 @@ const styles = {
     dialogContent: {
         marginTop: 30,
         minWidth: 350,
-        minHeight: 70,
-    }
+        minHeight: 40,
+    },
+    dialogText: {
+        fontSize: 18,
+        color: "black",
+    },
 };
 
 
@@ -134,7 +138,7 @@ class Teach extends React.Component {
                     <Dialog open={this.state.add} onClose={() => this.handleAddClose()}>
                         <DialogTitle className={classes.dialogTitle}>{"Add course"}</DialogTitle>
                         <DialogContent className={classes.dialogContent}>
-                            <DialogContentText>
+                            <DialogContentText className={classes.dialogText}>
                                 To add a new course, please fill in the form below.
                             </DialogContentText>
                             <TextField
@@ -169,7 +173,7 @@ class Teach extends React.Component {
                         {"Please Check the Course Name"}
                     </DialogTitle>
                     <DialogContent className={classes.dialogContent}>
-                        <DialogContentText>
+                        <DialogContentText className={classes.dialogText}>
                         Course name cannot be empty!
                         </DialogContentText>
                     </DialogContent>
@@ -186,7 +190,7 @@ class Teach extends React.Component {
                         {"Please Check the Course description"}
                     </DialogTitle>
                     <DialogContent className={classes.dialogContent}>
-                        <DialogContentText>
+                        <DialogContentText className={classes.dialogText}>
                         Course description cannot be empty!
                         </DialogContentText>
                     </DialogContent>

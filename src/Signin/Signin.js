@@ -53,7 +53,11 @@ const mapDispatchToProps = {
   dialogContent: {
     marginTop: 30,
     minWidth: 350,
-    minHeight: 70,
+    minHeight: 40,
+  },
+  dialogText: {
+    fontSize: 18,
+    color: "black",
   },
 };
 
@@ -155,7 +159,7 @@ class Signin extends Component {
             {"Please Check Your Username!"}
           </DialogTitle>
           <DialogContent className={classes.dialogContent}>
-            <DialogContentText>
+            <DialogContentText className={classes.dialogText}>
               Username cannot be empty!
             </DialogContentText>
           </DialogContent>
@@ -172,7 +176,7 @@ class Signin extends Component {
             {"Please Check Your Password!"}
           </DialogTitle>
           <DialogContent className={classes.dialogContent}>
-            <DialogContentText>
+            <DialogContentText className={classes.dialogText}>
               Password cannot be empty!
             </DialogContentText>
           </DialogContent>
@@ -189,7 +193,7 @@ class Signin extends Component {
             {"User Not Found!"}
           </DialogTitle>
           <DialogContent className={classes.dialogContent}>
-            <DialogContentText>
+            <DialogContentText className={classes.dialogText}>
               The attempted login request has been denied.
             </DialogContentText>
           </DialogContent>

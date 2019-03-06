@@ -23,9 +23,13 @@ const styles = {
         '& h2': {color: 'white',}
     },
     dialogContent: {
-      marginTop: 30,
-      minWidth: 350,
-      minHeight: 70,
+        marginTop: 30,
+        minWidth: 350,
+        minHeight: 40,
+    },
+    dialogText: {
+        fontSize: 18,
+        color: "black",
     },
 };
 
@@ -144,7 +148,7 @@ class Signup extends Component {
                     {"Please Check Your Username!"}
                 </DialogTitle>
                 <DialogContent className={classes.dialogContent}>
-                    <DialogContentText>
+                    <DialogContentText className={classes.dialogText}>
                     Username cannot be empty!
                     </DialogContentText>
                 </DialogContent>
@@ -161,7 +165,7 @@ class Signup extends Component {
                     {"Please Check Your Password!"}
                 </DialogTitle>
                 <DialogContent className={classes.dialogContent}>
-                    <DialogContentText>
+                    <DialogContentText className={classes.dialogText}>
                     Password cannot be empty!
                     </DialogContentText>
                 </DialogContent>
@@ -178,7 +182,7 @@ class Signup extends Component {
                     {"Please Check Your Passwords!"}
                 </DialogTitle>
                 <DialogContent className={classes.dialogContent}>
-                    <DialogContentText>
+                    <DialogContentText className={classes.dialogText}>
                     Passwords are not the same!
                     </DialogContentText>
                 </DialogContent>

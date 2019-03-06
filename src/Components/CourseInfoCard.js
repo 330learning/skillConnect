@@ -36,7 +36,11 @@ const styles = {
   dialogContent: {
     marginTop: 30,
     minWidth: 350,
-    minHeight: 70,
+    minHeight: 40,
+  },
+  dialogText: {
+    fontSize: 18,
+    color: "black",
   },
 };
 
@@ -108,7 +112,7 @@ class MediaCard extends React.Component {
         <Dialog open={this.state.open} onClose={() => this.handleClose()}>
           <DialogTitle className={classes.dialogTitle}>{"Are you sure you want to enroll?"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
-            <DialogContentText>
+            <DialogContentText className={classes.dialogText}>
               By enrolling in this course, you agree to terms and conditions of this application.
           </DialogContentText>
           </DialogContent>
@@ -126,7 +130,7 @@ class MediaCard extends React.Component {
         <Dialog open={this.state.confirm} onClose={() => this.handleConfirmClose()}>
           <DialogTitle className={classes.dialogTitle}>{"Success"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
-            <DialogContentText>
+            <DialogContentText className={classes.dialogText}>
               You've been successfully enrolled in this course.
           </DialogContentText>
           </DialogContent>
