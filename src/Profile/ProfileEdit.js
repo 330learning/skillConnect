@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "./Profile.css";
 import Button from '@material-ui/core/Button';
 import NavBar from "../Components/NavBar";
-import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../Signin/Signin.css'
 
 

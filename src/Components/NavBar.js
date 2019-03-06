@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { NavLink, Redirect } from "react-router-dom";
-import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
 
 const styles = {
   root: {

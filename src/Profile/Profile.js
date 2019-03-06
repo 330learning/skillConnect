@@ -5,8 +5,25 @@ import "./Profile.css";
 import Button from '@material-ui/core/Button';
 import NavBar from "../Components/NavBar";
 import ProfileCard from './ProfileCard';
-import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import {connect} from 'react-redux'
 
+
+
+function mapStateToProps(state) {
+    console.log('state',state);
+    return {
+        userProfile: {
+            username:state.user.username,
+            first:state.user.first,
+            last: state.user.last,
+            age: state.user.age,
+            email: state.user.email,
+            gender: state.user.gender,
+            avatar: state.user.avatar,
+        }   
+    }
+}
 
 const styles = theme => ({
     container: {
@@ -27,36 +44,11 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
-    state = {
-        firstName: "Old",
-        lastName: "Master",
-        age: 85,
-        email: "naive@gmail.com",
-        gender: "None"
-    }
 
     handleChange = (e, { value }) => this.setState({ value })
 
     render() {
-        var { firstName, lastName, age, email, gender } = this.state;
-        var options = [
-            { value: 'Arts', label: 'Arts' },
-            { value: 'Chem', label: 'Chemistry' },
-            { value: 'Computer', label: 'Computer' },
-            { value: 'History', label: 'History' },
-            { value: 'Math', label: 'Math' },
-            { value: 'Others', label: 'Others' }
-        ]
-        var selectorStyle = {
-            control: base => ({
-                ...base,
-                fontSize: "18px",
-            }),
-            menu: base => ({
-                ...base,
-                fontSize: "14px"
-            })
-        }
+        console.log('profile props',this.props.userProfile)
 
         var divStyle = {
             display: "flex",
@@ -67,9 +59,6 @@ class Profile extends Component {
             backgroundColor: "#dfe3ee"
         }
 
-        var textStyle = {
-            width: "300px"
-        }
 
         const { classes } = this.props;
         return (
@@ -77,8 +66,8 @@ class Profile extends Component {
                 <NavBar noBack={true} />
                 <div style={{ height: "50px" }}></div>
                 <h1>User Profile</h1>
-                <img src={require("../Images/1.png")} alt="random" />
-                <ProfileCard></ProfileCard>
+                <img src={this.props.userProfile.avatar} alt="Avatar" />
+                <ProfileCard userProfile={this.props.userProfile}></ProfileCard>
                 <br />
                 <br />
                 <Link to="/EditProfile">
@@ -98,4 +87,4 @@ Profile.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Profile);
+export default connect(mapStateToProps)(withStyles(styles)(Profile));

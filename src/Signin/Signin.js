@@ -3,6 +3,33 @@ import './Signin.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {NavLink} from "react-router-dom";
+import {login} from '../Actions/Actions'
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = {
+  login,
+ };
+
+ const bpitt = {
+   first : 'Brad',
+   last : 'Pitt',
+   age : 55,
+   gender : 'Male',
+   email : 'i-dont-know@gmail.com',
+   username : 'bpitt',
+   avatar: require('../Images/bradpitt.png')
+ }
+
+ const janiston = {
+   first : 'Jennifer',
+   last : 'Aniston',
+   age : 50,
+   gender : 'Femail',
+   email : 'i-hate-brad-pitt@gmail.com',
+   username: 'janiston',
+   avatar: require('../Images/janiston.jpg')
+ }
 
 class Signin extends Component {
   constructor() {
@@ -30,9 +57,18 @@ class Signin extends Component {
     }
     else if (this.state.password === "") {
       alert("Please enter password!")
+    } else if (this.state.username === "bpitt") {
+      //change redux state
+      this.props.login(bpitt)
+      this.props.history.push('Learn')
+
+    } else if (this.state.username === "janiston") {
+      //change redux state
+      this.props.login(janiston)
+      this.props.history.push('Learn')
     }
     else {
-      this.props.history.push('Learn')
+      alert("User Not Found!")
     }
   }
 
@@ -83,4 +119,4 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+export default connect(null, mapDispatchToProps)(Signin);
