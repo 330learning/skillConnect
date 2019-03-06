@@ -32,11 +32,11 @@ class App extends React.Component {
                     <Route path = '/Learn/Math' component={Math}/>
                     <Route path = '/Learn/Programming' component={Programming}/>
                     <Route path = '/Learn/Speech' component={Speech}/>
-                    <Route path='/Learn/Art' component={Art} />
-                    <Route path='/Learn/Literature' component={Literature} />
+                    <Route path= '/Learn/Art' component={Art} />
+                    <Route path= '/Learn/Literature' component={Literature} />
                     <Route path = '/Profile' component={Profile}/>
                     <Route path='/Teach' component={Teach} />
-                    <Route path='/EditProfile' component={EditProfile} />
+                    <Route path= '/EditProfile' component={EditProfile} />
                 </Switch>
             </div>
             </BrowserRouter>
