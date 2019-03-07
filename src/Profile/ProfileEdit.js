@@ -4,6 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "./Profile.css";
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import NavBar from "../Components/NavBar";
 // import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -31,15 +36,32 @@ const styles = theme => ({
     menu: {
         width: 200,
     },
+    dialogTitle: {
+        backgroundColor:"#3b5998",
+        '& h2': {color: 'white',}
+    },
+    dialogContent: {
+        marginTop: 30,
+        minWidth: 350,
+        minHeight: 40,
+    },
+    dialogText: {
+        fontSize: 18,
+        color: "black",
+    },
 });
 
 class EditProfile extends Component {
-    state = {
-        firstName: "Old",
-        lastName: "Master",
-        age: 0,
-        email: "naive@gmail.com",
-        gender: "Male"
+    constructor(props) {
+        super(props)
+        this.state = {
+            alert: false,
+            firstName: "Old",
+            lastName: "Master",
+            age: 0,
+            email: "naive@gmail.com",
+            gender: "Male",
+        }
     }
 
     handleChange = e => this.setState({ [e.target.name]: e.target.value })
@@ -48,8 +70,13 @@ class EditProfile extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    buttonClick = () => {
-        alert("You have successfully update you profile!"); 
+    handleClick() {
+        this.setState({alert: true})
+    }
+
+    handleClickClose() {
+        this.setState({alert: false})
+        this.props.history.goBack();
     }
 
     render() {
@@ -140,15 +167,31 @@ class EditProfile extends Component {
                     className = "Standard-input"
                     margin="normal"
                 />
-
                 <br />
                 <br />
 
-                
-                <Button variant="contained" color="primary" className={classes.button} onClick={this.buttonClick}>
+                <Button variant="contained" color="primary" className={classes.button} onClick={() => this.handleClick()}>
                     OK
                 </Button>
                 <div style={{ height: "500px" }}></div>
+
+
+                {/* profile updated alert */}
+                <Dialog open={this.state.alert} onClose={() => this.handleClickClose()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Profile Updated!"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    You have successfully Updated your profile!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleClickClose()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
 
             </div>
         );

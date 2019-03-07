@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { SSL_OP_TLS_BLOCK_PADDING_BUG } from "constants";
 
 const styles = theme => ({
   root: {
@@ -15,7 +16,12 @@ const styles = theme => ({
     overflowX: "auto"
   },
   table: {
-    minWidth: 100
+    minWidth: 100,
+  },
+  tableCellFont: {
+    fontSize: 18,
+    fontWeight: 700,
+    color: "#3b5998",
   }
 });
 
@@ -57,8 +63,8 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Item</TableCell>
-            <TableCell align="right">Content</TableCell>
+            <TableCell ><p className={classes.tableCellFont}>Item</p></TableCell>
+            <TableCell align="right"><p className={classes.tableCellFont}>Content</p></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
