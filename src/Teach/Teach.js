@@ -40,6 +40,12 @@ const styles = {
         fontSize: 18,
         color: "black",
     },
+    pAddIcon: {
+        fontSize: 80,
+    },
+    addIcon: {
+        fontSize: "inherit",
+    },
 };
 
 
@@ -129,7 +135,7 @@ class Teach extends React.Component {
                         <TeachCard name="Painting Art" intro={painting} image={paintingArt} />
                         {this.showNewCards()}
                         <Button variant="contained" color="primary" className={classes.card} onClick={() => this.handleAdd()}>
-                            <h1><AddIcon /></h1>
+                            <p className={classes.pAddIcon}><AddIcon className={classes.addIcon}/></p>
                         </Button>
 
                     </header>
