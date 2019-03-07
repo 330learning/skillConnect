@@ -12,6 +12,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Select from 'react-select';
 
 import HTML from "../Images/HTML.jpg";
 import AmericanHistory from "../Images/AmericanHistory.jpg";
@@ -30,6 +31,11 @@ const styles = {
     dialogTitle: {
         backgroundColor:"#3b5998",
         '& h2': {color: 'white',}
+    },
+    dialogContentLarge: {
+        marginTop: 30,
+        minWidth: 500,
+        minHeight: 600,
     },
     dialogContent: {
         marginTop: 30,
@@ -59,6 +65,7 @@ class Teach extends React.Component {
             count: 0,
             nameList: [],
             descList: [],
+            imageList: [],
         }
     }
 
@@ -73,6 +80,7 @@ class Teach extends React.Component {
     handleAddCloseAndUpdate() {
         let name = document.getElementById("name").value;
         let description = document.getElementById("description").value;
+        let imageUrl = document.getElementById("imageUrl").value;
         if (name === "") {
             this.setState({warning1: true});
         } 
@@ -84,6 +92,7 @@ class Teach extends React.Component {
             this.setState({count: (this.state.count + 1)});
             this.setState({nameList: this.state.nameList.concat([name])});
             this.setState({descList: this.state.descList.concat([description])});
+            this.setState({imageList: this.state.imageList.concat([imageUrl])});
         }
     }
     
@@ -99,7 +108,12 @@ class Teach extends React.Component {
     showNewCards() {
         let list = [];
         for (var i = 0; i < this.state.count; i++) {
-            list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={NewCourse} />);
+            if (this.state.imageList[i] === "") {
+                list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={NewCourse} />);
+            } else {
+                list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={this.state.imageList} />);
+            }
+            
         }
         return list;
     }
@@ -121,6 +135,29 @@ class Teach extends React.Component {
             "Activity will emphasize the study of color, structure, creativity and aesthetic values in general." +
             "present day, with an emphasis on the twentieth century.";
 
+        //options and styles for the selector
+        var options = [
+            {value: 'Other', label:'Other'},
+            {value: 'Art', label:'Art'},
+            {value: 'History', label: 'History'},
+            {value: 'Literature', label: 'Literature'},
+            {value: 'Design', label: 'Design'},
+            {value: 'Math', label: 'Math'},
+            {value: 'Programming', label: 'Programming'},
+            {value: 'Speech', label: 'LiterSpeechature'},
+            {value: 'Sports', label: 'Sports'},
+        ]
+        
+        var selectorStyle = {
+            control: base => ({
+                ...base,
+                fontSize:"18px",
+            }),
+            menu: base => ({
+                ...base,
+                fontSize:"14px",
+            }),
+        }
         
 
         if (this.state.count >= 0) {
@@ -143,7 +180,7 @@ class Teach extends React.Component {
                     {/* Fill form to add new course */}
                     <Dialog open={this.state.add} onClose={() => this.handleAddClose()}>
                         <DialogTitle className={classes.dialogTitle}>{"Add course"}</DialogTitle>
-                        <DialogContent className={classes.dialogContent}>
+                        <DialogContent className={classes.dialogContentLarge}>
                             <DialogContentText className={classes.dialogText}>
                                 To add a new course, please fill in the form below.
                             </DialogContentText>
@@ -158,9 +195,36 @@ class Teach extends React.Component {
                                 label="Course Description:"
                                 margin="normal"
                                 multiline
-                                rows="4"
+                                rows="2"
                                 fullWidth
                             />
+                            
+                            <p id="Selector-title">Field of Interests:</p>
+                            <Select options={options} styles={selectorStyle}/>
+                            
+                            <TextField
+                                id="capacity"
+                                label="Capacity:"
+                                type="number"
+                                margin="normal"
+                                fullWidth
+                            />
+                            <TextField
+                                id="fee"
+                                label="Enrollment Fee($):"
+                                type="number"
+                                margin="normal"
+                                fullWidth
+                            />
+                            
+                            <TextField
+                                id="imageUrl"
+                                label="Course Image(URL):"
+                                margin="normal"
+                                placeholder="e.g. http://www.google.com/images/new-course.png"
+                                fullWidth
+                            />
+
                         </DialogContent>
                         <DialogActions>
                             <Button color="primary" onClick={() => this.handleAddCloseAndUpdate()}>

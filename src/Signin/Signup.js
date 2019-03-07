@@ -78,23 +78,26 @@ class Signup extends Component {
         const { classes } = this.props;
         //options and styles for the selector
         var options = [
-            {value: 'Arts', label:'Arts'},
-            {value: 'Chem', label: 'Chemistry'},
-            {value: 'Computer', label: 'Computer'},
+            {value: 'Art', label:'Art'},
             {value: 'History', label: 'History'},
+            {value: 'Literature', label: 'Literature'},
+            {value: 'Design', label: 'Design'},
             {value: 'Math', label: 'Math'},
+            {value: 'Programming', label: 'Programming'},
+            {value: 'Speech', label: 'LiterSpeechature'},
+            {value: 'Sports', label: 'Sports'},
             {value: 'Others', label:'Others'}
         ]
 
         var selectorStyle = {
             control: base => ({
                 ...base,
-                fontSize:"18px"
+                fontSize:"18px",
             }),
             menu: base => ({
                 ...base,
-                fontSize:"14px"
-            })
+                fontSize:"14px",
+            }),
         }
 
         return(
@@ -108,9 +111,6 @@ class Signup extends Component {
                         type="search"
                         margin="normal"
                         id="username"
-                        style={{
-                            width: "300px"
-                          }}
                     />
                     <TextField
                         className = "Standard-input"
@@ -119,9 +119,6 @@ class Signup extends Component {
                         autoComplete="current-password"
                         margin="normal"
                         id="password1"
-                        style={{
-                            width: "300px"
-                          }}
                     />
                     <TextField
                         className = "Standard-input"
@@ -130,12 +127,9 @@ class Signup extends Component {
                         autoComplete="current-password"
                         margin="normal"
                         id="password2"
-                        style={{
-                            width: "300px"
-                          }}
                     />
 
-                    <p id="type-of-user">Field of Interests</p>
+                    <p id="Selector-title">Field of Interests:</p>
                     <Select className = "Selector" options = {options} isMulti styles={selectorStyle}/>
                     
                     <Button variant="contained" color="primary" id="submit" onClick={() => this.handleSignup()}>

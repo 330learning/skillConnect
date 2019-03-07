@@ -14,15 +14,16 @@
     padding-top:30px;
 }
 
-#type-of-user {
+#Selector-title {
     font-size: 16px;    
 }
 
 .Selector {
-    width:400px;
+    min-width:300px;
+    max-width:300px;
 }
 .Standard-input {
-    width:400px;
+    width:300px;
 }
 
 #submit {

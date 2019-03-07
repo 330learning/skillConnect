@@ -11,7 +11,7 @@ import { SSL_OP_TLS_BLOCK_PADDING_BUG } from "constants";
 
 const styles = theme => ({
   root: {
-    width: "40%",
+    width: "500px",
     marginTop: theme.spacing.unit * 3,
     overflowX: "auto"
   },
@@ -64,7 +64,7 @@ function SimpleTable(props) {
         <TableHead>
           <TableRow>
             <TableCell ><p className={classes.tableCellFont}>Item</p></TableCell>
-            <TableCell align="right"><p className={classes.tableCellFont}>Content</p></TableCell>
+            <TableCell align="left"><p className={classes.tableCellFont}>Content</p></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -73,7 +73,7 @@ function SimpleTable(props) {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.content}</TableCell>
+              <TableCell align="left">{row.content}</TableCell>
             </TableRow>
           ))}
         </TableBody>

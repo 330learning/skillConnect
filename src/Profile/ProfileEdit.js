@@ -144,7 +144,7 @@ class EditProfile extends Component {
                     onChange={this.handleChange}
                 />
                 <br />
-                <FormControl className={classes.formControl} style={{ width: "400px" }}>
+                <FormControl className={classes.formControl} style={{ width: "300px" }}>
                     <InputLabel htmlFor="age-simple">Gender</InputLabel>
                     <Select
                         value={this.state.gender}
