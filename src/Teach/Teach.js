@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import "./Teach.css"
 import TeachCard from "../Components/TeachCard";
+import LearnCard from "../Components/LearnCard";
 import NavBar from "../Components/NavBar";
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
@@ -15,9 +16,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Select from 'react-select';
 
 import HTML from "../Images/HTML.jpg";
-import AmericanHistory from "../Images/AmericanHistory.jpg";
 import Calculus from "../Images/Calculus.jpg";
 import paintingArt from "../Images/painting.jpg";
+import poetryLiterature from "../Images/poetry.jpg";
+import ElevatorPitch from "../Images/ElevatorPitch.jpg";
+import AmericanHistory from "../Images/AmericanHistory.jpg";
 import NewCourse from "../Images/NewCourse.png";
 
 
@@ -124,10 +127,6 @@ class Teach extends React.Component {
         var html = "This course is designed to introduce students to those basic grammatical rules in HTML. " + 
             "HTML is the standard markup language for creating web pages and web applications.";
 
-        var american = "This course provides a one-year survey of American " +
-            "history from the Colonial Period and the American Revolution to the" +
-            "present day, with an emphasis on the twentieth century.";
-
         var calculus = "This course is designed to introduce students to those most practical calculus method, including " + 
                 "differential calculus, integral calculus, and all other useful theorems.";
 
@@ -135,6 +134,18 @@ class Teach extends React.Component {
             "Activity will emphasize the study of color, structure, creativity and aesthetic values in general." +
             "present day, with an emphasis on the twentieth century.";
 
+        var poetry = "This course introduces students to the study of poetry and its cultural, social, and " +
+            "historical contexts. Content includes terminology and methods for analyzing and evaluating poetry."
+
+        var elevatorpitch = "This course focuses on elevator pitch skills. An elevator pitch is a succinct and " + 
+            "persuasive sales pitch. It gets its name from only having the time it takes to ride an elevator " + 
+            "from one floor to another and that's the succinct part."
+
+        var american = "This course provides a one-year survey of American " +
+            "history from the Colonial Period and the American Revolution to the" +
+            "present day, with an emphasis on the twentieth century.";
+
+        
         //options and styles for the selector
         var options = [
             {value: 'Other', label:'Other'},
@@ -167,7 +178,6 @@ class Teach extends React.Component {
                     <p id="course-header"> Courses You're Teaching </p>
                     <header className="Teach-header">
                         <TeachCard name="HTML" intro={html} image={HTML} />
-                        <TeachCard name="American History" intro={american} image={AmericanHistory} />
                         <TeachCard name="Calculus" intro={calculus} image={Calculus} />
                         <TeachCard name="Painting Art" intro={painting} image={paintingArt} />
                         {this.showNewCards()}
@@ -175,6 +185,15 @@ class Teach extends React.Component {
                             <p className={classes.pAddIcon}><AddIcon className={classes.addIcon}/></p>
                         </Button>
 
+                    </header>
+
+                    <p></p>
+                    <p id="course-header"> Courses You're Learning </p>
+                    <header className="Teach-header">
+                        <LearnCard name="Poetry Literature" intro={poetry} image={poetryLiterature} />
+                        <LearnCard name="Elevator Pitch" intro={elevatorpitch} image={ElevatorPitch} />
+                        <LearnCard name="American History" intro={american} image={AmericanHistory} />
+                        
                     </header>
 
                     {/* Fill form to add new course */}

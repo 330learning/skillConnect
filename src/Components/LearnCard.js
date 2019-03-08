@@ -103,9 +103,7 @@ class MediaCard extends React.Component {
             <Button size="small" color="primary" onClick={() => this.handleDelete()}>
               Delete
             </Button>
-            <Button size="small" color="primary" onClick={() => this.handleView()}>
-              View Students
-            </Button>
+            
           </CardActions>
         </Card>
 
