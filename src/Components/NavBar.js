@@ -8,6 +8,11 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { NavLink, Redirect } from "react-router-dom";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const styles = {
   root: {
@@ -34,12 +39,43 @@ const styles = {
   toolbarNoBack: {
     flexDirection: "row",
     justifyContent: "flex-end",
-  }
+  },
+  dialog: {
+    minWidth: 500,
+    minHeight: 300,
+  },
+  dialogTitle: {
+    backgroundColor:"#3b5998",
+    '& h2': {color: 'white',}
+  },
+  dialogContent: {
+    marginTop: 30,
+    minWidth: 350,
+    minHeight: 40,
+  },
+  dialogText: {
+    fontSize: 18,
+    color: "black",
+  },
 };
 
 class ButtonAppBar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      dialog: false
+    }
+  }
+
+  logout() {
+    this.setState({dialog:true});
+  }
+  handleClose() {
+    this.setState({dialog:false});
+  }
 
   render() {
+    console.log('props',this.props)
     var noBack = this.props.noBack
     const { classes } = this.props;
 
@@ -66,11 +102,30 @@ class ButtonAppBar extends React.Component {
               <NavLink to='/Profile' activeStyle={navLinkStyle}>
                 <Button style={{color:"white", fontSize:"18px"}}>Profile</Button>
               </NavLink>
-              <NavLink to='/' activeStyle={navLinkStyle}>
-                <Button style={{color:"white", fontSize:"18px"}}>Logout</Button>
-              </NavLink>
+                <Button style={{color:"white", fontSize:"18px"}} onClick={()=>this.logout()}>Logout</Button>
             </Toolbar>
           </AppBar>
+          <Dialog open={this.state.dialog} onClose={() => this.handleClose()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Logout Confirmation"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    Are you sure to logout?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <NavLink to='/' activeStyle={navLinkStyle}>
+                    <Button onClick={() => this.handleClose()} color="primary">
+                    Yes
+                    </Button>
+                </NavLink>
+
+                    <Button onClick={() => this.handleClose()} color="primary">
+                    No
+                    </Button>
+                </DialogActions>
+                </Dialog>
         </div>
       );
     }
@@ -93,6 +148,7 @@ class ButtonAppBar extends React.Component {
             </NavLink>
           </Toolbar>
         </AppBar>
+        
       </div>
     );
   }

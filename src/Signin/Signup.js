@@ -40,6 +40,7 @@ class Signup extends Component {
             warning1: false,
             warning2: false,
             warning3: false,
+            warning4: false,
         }
     }
 
@@ -57,7 +58,7 @@ class Signup extends Component {
             this.setState({warning3: true});
         }
         else {
-            this.props.history.goBack();
+            this.setState({warning4: true});
         }
     }
 
@@ -71,6 +72,11 @@ class Signup extends Component {
 
     handleWarning3Close() {
         this.setState({warning3: false});
+    }
+
+    handleWarning4Close() {
+        this.setState({warning4:false})
+        this.props.history.goBack();
     }
 
 
@@ -196,6 +202,22 @@ class Signup extends Component {
                 </DialogActions>
                 </Dialog>
 
+                {/* Sign up Successful */}
+                <Dialog open={this.state.warning4} onClose={() => this.handleWarning4Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Success"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    You have been successfully registered!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning4Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
 
             </div>
 

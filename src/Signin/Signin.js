@@ -93,7 +93,8 @@ class Signin extends Component {
       this.props.history.push('Learn')
     }
     else {
-      this.setState({warning3: true});
+      this.props.history.push('Learn')
+      // this.setState({warning3: true});
     }
   }
 
