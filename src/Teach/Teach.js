@@ -114,7 +114,7 @@ class Teach extends React.Component {
             if (this.state.imageList[i] === "") {
                 list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={NewCourse} />);
             } else {
-                list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={this.state.imageList} />);
+                list.push(<TeachCard name={this.state.nameList[i]} intro={this.state.descList[i]} image={this.state.imageList[i]} />);
             }
             
         }
