@@ -196,7 +196,7 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/language.59bcff57.jpg"
   },
   {
-    "revision": "0fb0dc9a914e563d55d5cc93a6c71886",
+    "revision": "b9608d60b18ddbec9fd3fb35e26918e0",
     "url": "/skillConnect/index.html"
   }
 ];
