@@ -24,6 +24,7 @@ const mapDispatchToProps = {
    age : 55,
    gender : 'Male',
    email : 'i-dont-know@gmail.com',
+   phone : '1241241248',
    username : 'bpitt',
    avatar: require('../Images/bradpitt.png')
  }
@@ -32,8 +33,9 @@ const mapDispatchToProps = {
    first : 'Jennifer',
    last : 'Aniston',
    age : 50,
-   gender : 'Femail',
+   gender : 'Female',
    email : 'i-hate-brad-pitt@gmail.com',
+   phone : '1231231234',
    username: 'janiston',
    avatar: require('../Images/janiston.jpg')
  }
@@ -112,7 +114,7 @@ class Signin extends Component {
     return (
       <div className="Signin">
         <header className="Signin-header">
-        <p> SIGN IN </p>
+          <p> SIGN IN </p>
           <TextField
             className = "Standard-input"
             label="Username:"
@@ -124,22 +126,22 @@ class Signin extends Component {
             }}
           />
           <div className="Password">
-          <TextField
-            className = "Standard-input"
-            label="Password:"
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-            id="password"
-            style={{
-              width: "300px"
-            }}
-          />
+            <TextField
+              className = "Standard-input"
+              label="Password:"
+              type="password"
+              autoComplete="current-password"
+              margin="normal"
+              id="password"
+              style={{
+                width: "300px"
+              }}
+            />
           {/* <p>Forgot Password</p> */}
           </div>
-            <Button variant="contained" color="primary" id="sign-in" onClick={() => this.handleSignin()}>
-              Sign in
-            </Button>
+          <Button variant="contained" color="primary" id="sign-in" onClick={() => this.handleSignin()}>
+            Sign in
+          </Button>
           <div id="sign-up-div">
             <p id="sign-up-p">Don't have an account?</p>
             </div>

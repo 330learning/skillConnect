@@ -29,7 +29,7 @@ class History extends React.Component {
 
         return (
             <div className="History">
-                <NavBar lastPage="Categories" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="EXPLORE" to="/Learn" Icon="arrow_back" />
                 <p id="course-header"> Hisotry Courses </p>
                 <header className="History-header">
                     <CourseInfoCard name="African History" intro={african} image={AfricanHistory} />

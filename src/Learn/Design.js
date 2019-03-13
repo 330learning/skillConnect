@@ -30,7 +30,7 @@ class Design extends React.Component {
 
         return (
             <div className="Design">
-                <NavBar lastPage="Categories" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="EXPLORE" to="/Learn" Icon="arrow_back" />
                 <p id="course-header"> Design Courses </p>
                 <header className="Design-header">
                     <CourseInfoCard name="Icon" intro={icon} image={iconDesign} />

@@ -205,13 +205,13 @@ class Teach extends React.Component {
                             </DialogContentText>
                             <TextField
                                 id="name"
-                                label="Course Name:"
+                                label="*Course Name:"
                                 margin="normal"
                                 fullWidth
                             />
                             <TextField
                                 id="description"
-                                label="Course Description:"
+                                label="*Course Description:"
                                 margin="normal"
                                 multiline
                                 rows="2"

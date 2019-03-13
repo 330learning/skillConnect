@@ -8,3 +8,15 @@ img {
     width: 200px;
     height: 200px;
 }
+
+#submit {
+    width: 200px;
+    margin-top: 20px;
+    height: 40px;
+}
+
+#cancel {
+    width: 200px;
+    margin-top: 20px;
+    height: 40px;
+}

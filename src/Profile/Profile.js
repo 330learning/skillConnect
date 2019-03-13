@@ -19,6 +19,7 @@ function mapStateToProps(state) {
             last: state.user.last,
             age: state.user.age,
             email: state.user.email,
+            phone: state.user.phone,
             gender: state.user.gender,
             avatar: state.user.avatar,
         }   
@@ -65,7 +66,7 @@ class Profile extends Component {
             <div style={divStyle}>
                 <NavBar noBack={true} />
                 <div style={{ height: "50px" }}></div>
-                <h1>User Profile</h1>
+                <h1>Your Profile</h1>
                 <img src={this.props.userProfile.avatar} alt="Avatar" />
                 <ProfileCard userProfile={this.props.userProfile}></ProfileCard>
                 <br />

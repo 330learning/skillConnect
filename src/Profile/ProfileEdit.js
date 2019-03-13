@@ -55,11 +55,15 @@ class EditProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            alert: false,
+            warning1: false,
+            warning2: false,
+            warning3: false,
+            success: false,
             firstName: "Old",
             lastName: "Master",
-            age: 0,
-            email: "naive@gmail.com",
+            age: 22,
+            email: "example@gmail.com",
+            phone: "1234567890",
             gender: "Male",
         }
     }
@@ -70,17 +74,53 @@ class EditProfile extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    handleClick() {
-        this.setState({alert: true})
+
+
+    handleCancel() {
+        this.props.history.goBack();
     }
 
-    handleClickClose() {
-        this.setState({alert: false})
+    handleSubmit() {
+        let first = document.getElementById("first").value;
+        let last = document.getElementById("last").value;
+        let email = document.getElementById("email").value;
+        if (first === "") {
+            this.setState({warning1: true});
+        }
+        else if (last === "") {
+            this.setState({warning2: true});
+        }
+        else {
+            let pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+            if (!pattern.test(email)) {
+                this.setState({warning3: true});
+            }
+            else {
+                this.setState({success: true});
+            }
+        }
+        
+    }
+    
+    handleWarning1Close() {
+        this.setState({warning1: false});
+    }
+
+    handleWarning2Close() {
+        this.setState({warning2: false});
+    }
+
+    handleWarning3Close() {
+        this.setState({warning3: false});
+    }
+
+    handleSuccessClose() {
+        this.setState({success: false})
         this.props.history.goBack();
     }
 
     render() {
-        var { firstName, lastName, age, email, gender } = this.state;
+        var { firstName, lastName, age, email, phone, gender } = this.state;
         var options = [
             { value: 'Arts', label: 'Arts' },
             { value: 'Chem', label: 'Chemistry' },
@@ -118,31 +158,49 @@ class EditProfile extends Component {
             <div style={divStyle}>
                 <NavBar noBack={true} />
                 <div style={{ height: "50px" }}></div>
-                <h1>User Profile</h1>
+                <h1>Edit Your Profile</h1>
                 <TextField
-                    id="standard-with-placeholder"
-                    label="First Name:"
+                    id="first"
+                    label="*First Name:"
                     placeholder={firstName}
                     className = "Standard-input"
                     margin="normal"
                 />
                 <TextField
-                    id="standard-with-placeholder"
-                    label="Last Name:"
+                    id="last"
+                    label="*Last Name:"
                     placeholder={lastName}
                     className = "Standard-input"
                     margin="normal"
                 />
 
                 <TextField
-                    id="standard-with-placeholder"
-                    label="Your Age:"
-                    placeholder="Only numbers allowed."
+                    id="email"
+                    label="*Email:"
+                    placeholder={email}
+                    className = "Standard-input"
+                    margin="normal"
+                />
+
+                <TextField
+                    id="phone"
+                    label="Phone:"
+                    placeholder={phone}
+                    type="number"
+                    className = "Standard-input"
+                    margin="normal"
+                />
+
+                <TextField
+                    id="age"
+                    label="Age:"
+                    placeholder={age}
                     type="number"
                     className = "Standard-input"
                     margin="normal"
                     onChange={this.handleChange}
                 />
+
                 <br />
                 <FormControl className={classes.formControl} style={{ width: "300px" }}>
                     <InputLabel htmlFor="age-simple">Gender</InputLabel>
@@ -160,24 +218,19 @@ class EditProfile extends Component {
                     </Select>
                 </FormControl>
 
-                <TextField
-                    id="standard-with-placeholder"
-                    label="Your Email:"
-                    placeholder={email}
-                    className = "Standard-input"
-                    margin="normal"
-                />
-                <br />
                 <br />
 
-                <Button variant="contained" color="primary" className={classes.button} onClick={() => this.handleClick()}>
-                    OK
+                <Button variant="contained" color="primary" id="submit" className={classes.button} onClick={() => this.handleSubmit()}>
+                    Submit
+                </Button>
+                <Button variant="contained" color="secondary" id="cancel" className={classes.button} onClick={() => this.handleCancel()}>
+                    Cancel
                 </Button>
                 <div style={{ height: "500px" }}></div>
 
 
-                {/* profile updated alert */}
-                <Dialog open={this.state.alert} onClose={() => this.handleClickClose()}>
+                {/* profile successly updated */}
+                <Dialog open={this.state.success} onClose={() => this.handleSuccessClose()}>
                 <DialogTitle className={classes.dialogTitle}>
                     {"Profile Updated!"}
                 </DialogTitle>
@@ -187,12 +240,62 @@ class EditProfile extends Component {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => this.handleClickClose()} color="primary">
+                    <Button onClick={() => this.handleSuccessClose()} color="primary">
                     OK
                     </Button>
                 </DialogActions>
                 </Dialog>
 
+                {/* first name empty warning */}
+                <Dialog open={this.state.warning1} onClose={() => this.handleWarning1Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your First Name!"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    First Name cannot be empty!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning1Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
+
+                {/* last name empty warning */}
+                <Dialog open={this.state.warning2} onClose={() => this.handleWarning2Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your Last Name!"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    Last Name cannot be empty!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning2Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
+
+                {/* password not same warning */}
+                <Dialog open={this.state.warning3} onClose={() => this.handleWarning3Close()}>
+                <DialogTitle className={classes.dialogTitle}>
+                    {"Please Check Your Email!"}
+                </DialogTitle>
+                <DialogContent className={classes.dialogContent}>
+                    <DialogContentText className={classes.dialogText}>
+                    Email format is improper!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.handleWarning3Close()} color="primary">
+                    OK
+                    </Button>
+                </DialogActions>
+                </Dialog>
             </div>
         );
     }

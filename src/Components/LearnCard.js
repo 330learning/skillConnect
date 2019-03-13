@@ -116,12 +116,12 @@ class MediaCard extends React.Component {
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={() => this.handleDeleteClose()}>
-              No
-          </Button>
             <Button color="primary" onClick={() => this.handleConfirm()}>
               Yes
-          </Button>
+            </Button>
+            <Button color="primary" onClick={() => this.handleDeleteClose()}>
+              No
+            </Button>
           </DialogActions>
         </Dialog>
 

@@ -58,16 +58,16 @@ class ButtonAppBar extends React.Component {
           <AppBar className={classes.appBar} position="static">
             <Toolbar className={classes.toolbarNoBack}>
               <NavLink to='/Learn' activeStyle={navLinkStyle}>
-                <Button style={{color:"white"}}>Explore</Button>
+                <Button style={{color:"white", fontSize:"18px"}}>Explore</Button>
               </NavLink>
               <NavLink to='/Teach' activeStyle={navLinkStyle}>
-                <Button style={{color:"white"}}>Courses</Button>
+                <Button style={{color:"white", fontSize:"18px"}}>Courses</Button>
               </NavLink>
               <NavLink to='/Profile' activeStyle={navLinkStyle}>
-                <Button style={{color:"white"}}>Profile</Button>
+                <Button style={{color:"white", fontSize:"18px"}}>Profile</Button>
               </NavLink>
               <NavLink to='/' activeStyle={navLinkStyle}>
-                <Button style={{color:"white"}}>Logout</Button>
+                <Button style={{color:"white", fontSize:"18px"}}>Logout</Button>
               </NavLink>
             </Toolbar>
           </AppBar>
@@ -89,7 +89,7 @@ class ButtonAppBar extends React.Component {
             </NavLink>
             
             <NavLink to='/' activeStyle={navLinkStyle}>
-              <Button color="inherit">Logout</Button>
+              <Button color="inherit" style={{color:"white", fontSize:"18px"}} >Logout</Button>
             </NavLink>
           </Toolbar>
         </AppBar>

@@ -6,6 +6,7 @@ const initialState =
       age: '',
       gender: '',
       email: '',
+      phone: '',
       avatar: require('../Images/default.jpg'),
     }
 
@@ -21,6 +22,7 @@ export default function userReducer(state=initialState, action) {
                     age: action.age,
                     gender: action.gender,
                     email: action.email,
+                    phone: action.phone,
                     avatar: action.avatar,
                 }
             )

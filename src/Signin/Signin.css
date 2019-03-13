@@ -45,6 +45,7 @@
 #sign-in {
     width: 200px;
     margin-top: 20px;
+    margin-bottom: 5px;
     height: 40px;
 }
 
@@ -54,14 +55,14 @@
 
 #sign-up {
     width: 200px;
-    margin-top: 20px;
+    margin-top: 10px;
     height: 40px;
 }
 
 #sign-up-p {
     color: black;
     float: left;
-    font-size:15px;
+    font-size:16px;
     margin-right: 10px;
     margin-bottom: 0px;
 }
