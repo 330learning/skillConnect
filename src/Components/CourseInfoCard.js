@@ -15,6 +15,31 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import {addScore} from '../Actions/Actions'
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = {
+  addScore,
+ };
+
+ function mapStateToProps(state) {
+  return {
+      userProfile: {
+          username:state.user.username,
+          first:state.user.first,
+          last: state.user.last,
+          age: state.user.age,
+          email: state.user.email,
+          phone: state.user.phone,
+          gender: state.user.gender,
+          avatar: state.user.avatar,
+          score: state.user.score,
+      }   
+  }
+}
+
+
 const styles = {
   card: {
     minWidth: 325,
@@ -63,12 +88,12 @@ class MediaCard extends React.Component {
   }
 
   handleConfirm() {
+    this.props.addScore(this.props.userProfile)
     this.setState({open:false,confirm:true})
   }
 
   handleConfirmClose() {
     this.setState({confirm:false})
-    console.log(this.state.confirm)
   }
 
   handleMore() {
@@ -81,6 +106,7 @@ class MediaCard extends React.Component {
 
 
   render() {
+    console.log('courseinfocard props',this.props)
     const { classes } = this.props;
 
     return (
@@ -128,10 +154,10 @@ class MediaCard extends React.Component {
 
         {/* second dialog */}
         <Dialog open={this.state.confirm} onClose={() => this.handleConfirmClose()}>
-          <DialogTitle className={classes.dialogTitle}>{"Success"}</DialogTitle>
+          <DialogTitle className={classes.dialogTitle}>{"Congratulations!"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <DialogContentText className={classes.dialogText}>
-              You've been successfully enrolled in this course.
+              You've been successfully enrolled in this course and earned 100 points!
           </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -198,4 +224,4 @@ MediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MediaCard));

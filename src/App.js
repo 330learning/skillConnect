@@ -22,7 +22,6 @@ class App extends Component {
         value: 0
     };
     render() {
-        console.log(process.env.PUBLIC_URL);
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="main">

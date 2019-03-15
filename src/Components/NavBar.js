@@ -75,7 +75,6 @@ class ButtonAppBar extends React.Component {
   }
 
   render() {
-    console.log('props',this.props)
     var noBack = this.props.noBack
     const { classes } = this.props;
 

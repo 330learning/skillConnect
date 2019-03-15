@@ -26,7 +26,8 @@ const mapDispatchToProps = {
    email : 'i-dont-know@gmail.com',
    phone : '1241241248',
    username : 'bpitt',
-   avatar: require('../Images/bradpitt.png')
+   avatar: require('../Images/bradpitt.png'),
+   score: 200
  }
 
  const janiston = {
@@ -37,7 +38,8 @@ const mapDispatchToProps = {
    email : 'i-hate-brad-pitt@gmail.com',
    phone : '1231231234',
    username: 'janiston',
-   avatar: require('../Images/janiston.jpg')
+   avatar: require('../Images/janiston.jpg'),
+   score: 300
  }
 
 
@@ -112,6 +114,7 @@ class Signin extends Component {
 
   render() {
     const { classes } = this.props;
+    console.log('signin page props', this.props)
     return (
       <div className="Signin">
         <header className="Signin-header">

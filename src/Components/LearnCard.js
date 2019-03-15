@@ -15,6 +15,30 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import {removeScore} from '../Actions/Actions'
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = {
+  removeScore,
+ };
+
+ function mapStateToProps(state) {
+  return {
+      userProfile: {
+          username:state.user.username,
+          first:state.user.first,
+          last: state.user.last,
+          age: state.user.age,
+          email: state.user.email,
+          phone: state.user.phone,
+          gender: state.user.gender,
+          avatar: state.user.avatar,
+          score: state.user.score,
+      }   
+  }
+}
+
 const styles = {
   card: {
     minWidth: 325,
@@ -63,6 +87,7 @@ class MediaCard extends React.Component {
   }
 
   handleConfirm() {
+    this.props.removeScore(this.props.userProfile)
     this.setState({delete:false,confirm:true})
   }
 
@@ -112,7 +137,7 @@ class MediaCard extends React.Component {
           <DialogTitle className={classes.dialogTitle}>{"Are you sure you want to delete it?"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <DialogContentText className={classes.dialogText}>
-              The course will be gone for good.
+              You will lose 100 points for deleting.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -188,4 +213,4 @@ MediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MediaCard));
