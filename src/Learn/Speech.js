@@ -29,7 +29,7 @@ class Speech extends React.Component {
 
         return (
             <div className="Speech">
-                <NavBar lastPage="EXPLORE" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="EXPLORE" to="/Explore" Icon="arrow_back" />
                 <p id="course-header"> Speech Courses </p>
                 <header className="Speech-header">
                     <CourseInfoCard name="Presentation" intro={presentation} image={Presentation} />

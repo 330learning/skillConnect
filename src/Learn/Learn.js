@@ -23,15 +23,15 @@ class Learn extends React.Component {
         <p id="course-header"> Explore By Category </p>
         <header className="Learn-header">
           <React.Fragment>
-          <CourseCard image={Art} title="Art" letter="A" to="/Learn/Art"/>
-          <CourseCard image={History} title="History" letter="H" to="/Learn/History"/>
-          <CourseCard image={Literature} title="Literature" letter="L" to="/Learn/Literature"/>
-          <CourseCard image={Design} title="Design" letter="D" to="/Learn/Design"/>
+          <CourseCard image={Art} title="Art" letter="A" to="/Explore/Art"/>
+          <CourseCard image={History} title="History" letter="H" to="/Explore/History"/>
+          <CourseCard image={Literature} title="Literature" letter="L" to="/Explore/Literature"/>
+          <CourseCard image={Design} title="Design" letter="D" to="/Explore/Design"/>
           
-          <CourseCard image={Math} title="Math" letter="M" to="/Learn/Math"/>
-          <CourseCard image={Programming} title="Programming" letter="P" to="/Learn/Programming"/>
-          <CourseCard image={Speech} title="Speech" letter="S" to="/Learn/Speech"/>
-          <CourseCard image={Sports} title="Sports" letter="S" to="/Learn/Sports"/>
+          <CourseCard image={Math} title="Math" letter="M" to="/Explore/Math"/>
+          <CourseCard image={Programming} title="Programming" letter="P" to="/Explore/Programming"/>
+          <CourseCard image={Speech} title="Speech" letter="S" to="/Explore/Speech"/>
+          <CourseCard image={Sports} title="Sports" letter="S" to="/Explore/Sports"/>
           </React.Fragment> 
 
         </header>

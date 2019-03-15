@@ -137,7 +137,7 @@ class MediaCard extends React.Component {
           <DialogTitle className={classes.dialogTitle}>{"Are you sure you want to delete it?"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <DialogContentText className={classes.dialogText}>
-              You will lose 100 points for deleting.
+              You will lose <strong>100 points</strong> for deleting a course that you're learning.
           </DialogContentText>
           </DialogContent>
           <DialogActions>

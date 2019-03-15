@@ -29,7 +29,7 @@ class Programming extends React.Component {
 
         return (
             <div className="Programming">
-                <NavBar lastPage="EXPLORE" to="/Learn" Icon="arrow_back" />
+                <NavBar lastPage="EXPLORE" to="/Explore" Icon="arrow_back" />
                 <p id="course-header"> Programming Courses </p>
                 <header className="Programming-header">
                     <CourseInfoCard name="C++" intro={cpp} image={CPP} />

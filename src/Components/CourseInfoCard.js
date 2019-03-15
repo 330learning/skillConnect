@@ -139,7 +139,7 @@ class MediaCard extends React.Component {
           <DialogTitle className={classes.dialogTitle}>{"Are you sure you want to enroll?"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <DialogContentText className={classes.dialogText}>
-              By enrolling in this course, you agree to terms and conditions of this application.
+              You can earn <strong>100 points</strong> by enrolling in this course.
           </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -157,7 +157,8 @@ class MediaCard extends React.Component {
           <DialogTitle className={classes.dialogTitle}>{"Congratulations!"}</DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <DialogContentText className={classes.dialogText}>
-              You've been successfully enrolled in this course and earned 100 points!
+              You've successfully enrolled in this course! <br />
+              You've earned <strong>100 points</strong> for enrolling in this course!
           </DialogContentText>
           </DialogContent>
           <DialogActions>

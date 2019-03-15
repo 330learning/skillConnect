@@ -27,7 +27,7 @@ const mapDispatchToProps = {
    phone : '1241241248',
    username : 'bpitt',
    avatar: require('../Images/bradpitt.png'),
-   score: 200
+   score: 600
  }
 
  const janiston = {
@@ -39,7 +39,7 @@ const mapDispatchToProps = {
    phone : '1231231234',
    username: 'janiston',
    avatar: require('../Images/janiston.jpg'),
-   score: 300
+   score: 600
  }
 
 
@@ -88,14 +88,14 @@ class Signin extends Component {
     } else if (username === "bpitt") {
       //change redux state
       this.props.login(bpitt)
-      this.props.history.push('Learn')
+      this.props.history.push('Explore')
     } else if (username === "janiston") {
       //change redux state
       this.props.login(janiston)
-      this.props.history.push('Learn')
+      this.props.history.push('Explore')
     }
     else {
-      this.props.history.push('Learn')
+      this.props.history.push('Explore')
       // this.setState({warning3: true});
     }
   }

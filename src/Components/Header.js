@@ -15,7 +15,7 @@ class Header extends Component {
     render() {
         return (
             <div id="header">
-                <Link to="/Learn">
+                <Link to="/Explore">
                 <p id="title">skillConnect</p>
                 </Link>
             </div>

@@ -326,11 +326,12 @@ class Teach extends React.Component {
                     {/* success dialog */}
                     <Dialog open={this.state.success} onClose={() => this.handleSuccessClose()}>
                     <DialogTitle className={classes.dialogTitle}>
-                        {"Congratulations"}
+                        {"Congratulations!"}
                     </DialogTitle>
                     <DialogContent className={classes.dialogContent}>
                         <DialogContentText className={classes.dialogText}>
-                        You have earned 100 points for offering new courses
+                        You have successfully offered a new course! <br />
+                        You have earned <strong>100 points</strong> for offering this course!
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>

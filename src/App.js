@@ -29,17 +29,17 @@ class App extends Component {
                 <Switch>
                     <Route exact path ='/' component={Signin}/>
                     <Route path = '/Signup' component={Signup}/>
-                    <Route exact path = '/Learn' component={Learn}/>
-                    <Route path = '/Learn/History' component={History}/>
-                    <Route path = '/Learn/Math' component={Math}/>
-                    <Route path = '/Learn/Programming' component={Programming}/>
-                    <Route path = '/Learn/Speech' component={Speech}/>
-                    <Route path= '/Learn/Art' component={Art} />
-                    <Route path= '/Learn/Literature' component={Literature} />
-                    <Route path= '/Learn/Design' component={Design} />
-                    <Route path= '/Learn/Sports' component={Sports} />
+                    <Route exact path = '/Explore' component={Learn}/>
+                    <Route path = '/Explore/History' component={History}/>
+                    <Route path = '/Explore/Math' component={Math}/>
+                    <Route path = '/Explore/Programming' component={Programming}/>
+                    <Route path = '/Explore/Speech' component={Speech}/>
+                    <Route path= '/Explore/Art' component={Art} />
+                    <Route path= '/Explore/Literature' component={Literature} />
+                    <Route path= '/Explore/Design' component={Design} />
+                    <Route path= '/Explore/Sports' component={Sports} />
                     <Route path = '/Profile' component={Profile}/>
-                    <Route path='/Teach' component={Teach} />
+                    <Route path='/Courses' component={Teach} />
                     <Route path= '/EditProfile' component={EditProfile} />
                 </Switch>
             </div>
