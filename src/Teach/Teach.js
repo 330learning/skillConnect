@@ -23,6 +23,30 @@ import ElevatorPitch from "../Images/ElevatorPitch.jpg";
 import AmericanHistory from "../Images/AmericanHistory.jpg";
 import NewCourse from "../Images/NewCourse.png";
 
+import {addScore} from '../Actions/Actions'
+import { connect } from 'react-redux';
+
+
+const mapDispatchToProps = {
+  addScore,
+ };
+
+ function mapStateToProps(state) {
+  return {
+      userProfile: {
+          username:state.user.username,
+          first:state.user.first,
+          last: state.user.last,
+          age: state.user.age,
+          email: state.user.email,
+          phone: state.user.phone,
+          gender: state.user.gender,
+          avatar: state.user.avatar,
+          score: state.user.score,
+      }   
+  }
+}
+
 
 const styles = {
     card: {
@@ -65,6 +89,7 @@ class Teach extends React.Component {
             add: false,
             warning1: false,
             warning2: false,
+            success: false,
             count: 0,
             nameList: [],
             descList: [],
@@ -96,7 +121,10 @@ class Teach extends React.Component {
             this.setState({nameList: this.state.nameList.concat([name])});
             this.setState({descList: this.state.descList.concat([description])});
             this.setState({imageList: this.state.imageList.concat([imageUrl])});
+            this.props.addScore(this.props.userProfile)
+            this.setState({success:true})
         }
+
     }
     
     handleWarning1Close() {
@@ -105,6 +133,11 @@ class Teach extends React.Component {
 
     handleWarning2Close() {
         this.setState({warning2: false});
+    }
+
+    handleSuccessClose() {
+        this.setState({success: false});
+
     }
 
 
@@ -290,6 +323,23 @@ class Teach extends React.Component {
                     </DialogActions>
                     </Dialog>
 
+                    {/* success dialog */}
+                    <Dialog open={this.state.success} onClose={() => this.handleSuccessClose()}>
+                    <DialogTitle className={classes.dialogTitle}>
+                        {"Congratulations"}
+                    </DialogTitle>
+                    <DialogContent className={classes.dialogContent}>
+                        <DialogContentText className={classes.dialogText}>
+                        You have earned 100 points for offering new courses
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.handleSuccessClose()} color="primary">
+                        OK
+                        </Button>
+                    </DialogActions>
+                    </Dialog>
+
 
                 </div>
             );
@@ -301,4 +351,4 @@ Teach.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Teach);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Teach));

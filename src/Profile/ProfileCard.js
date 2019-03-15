@@ -38,6 +38,7 @@ var rows = [
   createData("Gender", "Male"),
   createData("Email", "master@gmail.com"),
   createData("Phone", "1234567890"),
+  createData("Score", 100)
 ];
 
 
@@ -56,6 +57,7 @@ function SimpleTable(props) {
       createData("Gender", props.userProfile.gender),
       createData("Email", props.userProfile.email),
       createData("Phone", props.userProfile.phone),
+      createData("Score", props.userProfile.score)
     ]
   }
 

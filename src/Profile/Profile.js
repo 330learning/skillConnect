@@ -22,6 +22,7 @@ function mapStateToProps(state) {
             phone: state.user.phone,
             gender: state.user.gender,
             avatar: state.user.avatar,
+            score: state.user.score,
         }   
     }
 }
