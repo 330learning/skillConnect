@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/Icon.30759f99.jpg"
   },
   {
-    "revision": "9112e4288bdfb2f13129",
+    "revision": "d528e385dc67aab61e4b",
     "url": "/skillConnect/static/css/main.7dead9d6.chunk.css"
   },
   {
@@ -100,8 +100,8 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/dance.ed086c67.jpg"
   },
   {
-    "revision": "9112e4288bdfb2f13129",
-    "url": "/skillConnect/static/js/main.9112e428.chunk.js"
+    "revision": "d528e385dc67aab61e4b",
+    "url": "/skillConnect/static/js/main.d528e385.chunk.js"
   },
   {
     "revision": "b998dab9b489b768d01180a45b4e4c0f",
@@ -196,7 +196,7 @@ self.__precacheManifest = [
     "url": "/skillConnect/static/media/language.59bcff57.jpg"
   },
   {
-    "revision": "b06805004e473de176e8d04c28ed4a52",
+    "revision": "f017962567f286394ef2a0841404454c",
     "url": "/skillConnect/index.html"
   }
 ];
