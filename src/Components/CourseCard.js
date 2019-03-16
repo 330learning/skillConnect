@@ -21,6 +21,7 @@ import { NavLink } from "react-router-dom";
 const styles = {
   card: {
     minWidth: 325,
+    maxWidth: 325,
     margin: 20,
   },
   media: {
@@ -97,7 +98,7 @@ class CourseCard extends React.Component {
 
         <Collapse in={this.state.expand} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Click to Learn more about {this.props.title}</Typography>
+          <Typography paragraph>Hint: Click the title or the image to see more courses of {this.props.title}.</Typography>
         </CardContent>
         </Collapse>
       </Card>
